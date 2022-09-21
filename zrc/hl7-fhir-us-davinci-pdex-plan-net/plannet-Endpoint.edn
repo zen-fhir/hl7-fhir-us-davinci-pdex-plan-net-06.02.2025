@@ -1,0 +1,100 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint,
+ import
+ #{hl7-fhir-r4-core.code
+   hl7-fhir-r4-core.url
+   zen.fhir
+   hl7-fhir-r4-core.ContactPoint
+   hl7-fhir-r4-core.string
+   hl7-fhir-r4-core.instant
+   hl7-fhir-r4-core.Coding
+   hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase
+   hl7-fhir-r4-core.Endpoint
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+   hl7-fhir-r4-core.Meta
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "The technical details of an endpoint that can be used for electronic services, such as a portal or FHIR REST services, messaging or operations, or DIRECT messaging.",
+  :zen.fhir/type "Endpoint",
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint",
+  :zen.fhir/version "0.5.21-6",
+  :confirms #{hl7-fhir-r4-core.Endpoint/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:_address {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :connectionType
+   {:confirms #{hl7-fhir-r4-core.Coding/schema},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS/value-set,
+     :strength :extensible}},
+   :address
+   {:confirms #{hl7-fhir-r4-core.url/schema}, :fhir/flags #{:MS}},
+   :meta
+   {:confirms #{hl7-fhir-r4-core.Meta/schema},
+    :type zen/map,
+    :keys
+    {:lastUpdated {:confirms #{hl7-fhir-r4-core.instant/schema}},
+     :_lastUpdated {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+    :require #{:lastUpdated}},
+   :managingOrganization
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers
+     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+   :name
+   {:confirms #{hl7-fhir-r4-core.string/schema}, :fhir/flags #{:MS}},
+   :payloadMimeType
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.code/schema}, :fhir/flags #{:MS}}},
+   :_status {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :payloadType
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS/value-set,
+      :strength :extensible}},
+    :maxItems 1},
+   :status
+   {:const {:value "active"},
+    :confirms #{hl7-fhir-r4-core.code/schema},
+    :fhir/flags #{:MS}},
+   :endpoint-usecase
+   {:type zen/vector,
+    :every
+    {:confirms
+     #{hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase/schema},
+     :fhir/extensionUri
+     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/endpoint-usecase",
+     :fhir/flags #{:MS},
+     :zen/desc "Endpoint Usecase"}},
+   :_name {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :contact
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.ContactPoint/schema},
+     :type zen/map,
+     :keys
+     {:system
+      {:confirms #{hl7-fhir-r4-core.code/schema}, :fhir/flags #{:MS}},
+      :_system {:confirms #{hl7-fhir-r4-core.Element/schema}},
+      :value
+      {:confirms #{hl7-fhir-r4-core.string/schema},
+       :fhir/flags #{:MS}},
+      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+     :fhir/flags #{:MS}}},
+   :_payloadMimeType
+   {:type zen/vector,
+    :every {:confirms #{hl7-fhir-r4-core.Element/schema}}}}}}

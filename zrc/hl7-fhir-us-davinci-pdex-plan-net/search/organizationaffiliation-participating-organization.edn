@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-participating-organization,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "organizationaffiliation-participating-organization",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-participating-organization",
+  :fhir/type "reference",
+  :name "participating-organization",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["participatingOrganization"]],
+    :jsonpath ["$.\"participatingOrganization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

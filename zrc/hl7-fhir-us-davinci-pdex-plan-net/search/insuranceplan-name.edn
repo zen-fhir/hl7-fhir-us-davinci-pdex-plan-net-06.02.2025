@@ -1,0 +1,15 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-name,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "insuranceplan-name",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-name",
+  :fhir/type "string",
+  :name "name",
+  :expr
+  {:InsurancePlan
+   {:jsonpath [],
+    :data-types #{},
+    :template :string,
+    :sql {:where [:or], :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,39 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification,
+ import
+ #{hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen.fhir/version "0.5.21-6",
+  :zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/practitioner-qualification",
+  :require #{:whereValid :status},
+  :type zen/map,
+  :zen/desc
+  "An extension to add status and whereValid elements to a practitioner’s qualifications.",
+  :keys
+  {:status
+   {:confirms #{hl7-fhir-r4-core.code/schema},
+    :fhir/flags #{:MS},
+    :zen/desc "Status"},
+   :whereValid
+   {:type zen/vector,
+    :every
+    {:fhir/polymorphic true,
+     :exclusive-keys #{#{:CodeableConcept :Reference}},
+     :type zen/map,
+     :keys
+     {:CodeableConcept
+      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+      :Reference
+      {:confirms
+       #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+       :zen.fhir/reference
+       {:refers
+        #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+     :fhir/flags #{:MS},
+     :zen/desc "Where the qualification is valid"},
+    :minItems 1}}}}

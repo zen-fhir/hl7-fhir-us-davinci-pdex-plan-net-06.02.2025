@@ -1,0 +1,187 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.plannet-InsurancePlan,
+ import
+ #{hl7-fhir-r4-core.Period
+   hl7-fhir-r4-core.BackboneElement
+   hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+   hl7-fhir-r4-core.ContactPoint
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Network
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.InsuranceProductTypeVS
+   hl7-fhir-r4-core.string
+   hl7-fhir-r4-core.instant
+   hl7-fhir-r4-core.InsurancePlan
+   hl7-fhir-r4-core.HumanName
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+   hl7-fhir-r4-core.Meta
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-r4-core.Identifier
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.InsurancePlanTypeVS},
+ schema
+ {:zen.fhir/version "0.5.21-6",
+  :confirms #{hl7-fhir-r4-core.InsurancePlan/schema zen.fhir/Resource},
+  :zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-InsurancePlan",
+  :require #{:type :status :administeredBy :ownedBy},
+  :type zen/map,
+  :zen/desc
+  "An InsurancePlan is a discrete package of health insurance coverage benefits that are offered under a particular network type. A given payer’s products typically differ by network type and/or covered benefits. A plan pairs a product’s covered benefits with the particular cost sharing structure offered to a consumer. A given product may comprise multiple plans (i.e. each plan offers different cost sharing requirements for the same set of covered benefits).\n\nInsurancePlan describes a health insurance offering comprised of a list of covered benefits (i.e. the product), costs associated with those benefits (i.e. the plan), and additional information about the offering, such as who it is owned and administered by, a coverage area, contact information, etc.",
+  :keys
+  {:coverageArea
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+   :meta
+   {:confirms #{hl7-fhir-r4-core.Meta/schema},
+    :type zen/map,
+    :keys
+    {:lastUpdated {:confirms #{hl7-fhir-r4-core.instant/schema}},
+     :_lastUpdated {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+    :require #{:lastUpdated}},
+   :name
+   {:confirms #{hl7-fhir-r4-core.string/schema}, :fhir/flags #{:MS}},
+   :_status {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :type
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-us-davinci-pdex-plan-net.value-set.InsuranceProductTypeVS/value-set,
+      :strength :extensible},
+     :zen/desc "Product Type"},
+    :minItems 1,
+    :maxItems 1},
+   :alias
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.string/schema}, :fhir/flags #{:MS}}},
+   :status
+   {:const {:value "active"},
+    :confirms #{hl7-fhir-r4-core.code/schema},
+    :fhir/flags #{:MS}},
+   :_name {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :identifier
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Identifier/schema},
+     :type zen/map,
+     :keys
+     {:type
+      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+       :fhir/flags #{:MS}},
+      :value
+      {:confirms #{hl7-fhir-r4-core.string/schema},
+       :fhir/flags #{:MS}},
+      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}},
+      :assigner
+      {:confirms
+       #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+       :fhir/flags #{:MS},
+       :zen.fhir/reference {:refers #{}}}}}},
+   :administeredBy
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers
+     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+   :ownedBy
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers
+     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+   :network
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema}}}},
+   :period
+   {:confirms #{hl7-fhir-r4-core.Period/schema}, :fhir/flags #{:MS}},
+   :_alias
+   {:type zen/vector,
+    :every {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+   :plan
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
+     :type zen/map,
+     :keys
+     {:type
+      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+       :fhir/flags #{:MS},
+       :zen.fhir/value-set
+       {:symbol
+        hl7-fhir-us-davinci-pdex-plan-net.value-set.InsurancePlanTypeVS/value-set,
+        :strength :extensible},
+       :zen/desc "Categorization of the cost sharing for the plan"},
+      :coverageArea
+      {:type zen/vector,
+       :every
+       {:confirms
+        #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+        :fhir/flags #{:MS},
+        :zen.fhir/reference
+        {:refers
+         #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+      :network
+      {:type zen/vector,
+       :every
+       {:confirms
+        #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+        :zen.fhir/reference
+        {:refers
+         #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema}}}}},
+     :zen/desc "Cost sharing details for the plan"}},
+   :endpoint
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}},
+   :contact
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
+     :type zen/map,
+     :keys
+     {:name
+      {:confirms #{hl7-fhir-r4-core.HumanName/schema},
+       :type zen/map,
+       :keys
+       {:text
+        {:confirms #{hl7-fhir-r4-core.string/schema},
+         :fhir/flags #{:MS}},
+        :_text {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+       :fhir/flags #{:MS}},
+      :telecom
+      {:type zen/vector,
+       :every
+       {:confirms #{hl7-fhir-r4-core.ContactPoint/schema},
+        :type zen/map,
+        :keys
+        {:system
+         {:confirms #{hl7-fhir-r4-core.code/schema},
+          :fhir/flags #{:MS}},
+         :_system {:confirms #{hl7-fhir-r4-core.Element/schema}},
+         :value
+         {:confirms #{hl7-fhir-r4-core.string/schema},
+          :fhir/flags #{:MS}},
+         :_value {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+        :fhir/flags #{:MS}}}},
+     :fhir/flags #{:MS}}}},
+  :zen.fhir/type "InsurancePlan"}}

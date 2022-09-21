@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-primary-organization,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "organizationaffiliation-primary-organization",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-primary-organization",
+  :fhir/type "reference",
+  :name "primary-organization",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["organization"]],
+    :jsonpath ["$.\"organization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

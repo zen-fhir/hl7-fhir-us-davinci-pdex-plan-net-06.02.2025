@@ -1,0 +1,151 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.plannet-OrganizationAffiliation,
+ import
+ #{hl7-fhir-r4-core.Period
+   hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+   hl7-fhir-r4-core.ContactPoint
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Network
+   hl7-fhir-r4-core.boolean
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService
+   hl7-fhir-r4-core.string
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS
+   hl7-fhir-r4-core.instant
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+   hl7-fhir-r4-core.Meta
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.positiveInt
+   hl7-fhir-r4-core.Element
+   hl7-fhir-us-davinci-pdex-plan-net.qualification
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.OrganizationAffiliationRoleVS
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-r4-core.Identifier
+   hl7-fhir-r4-core.OrganizationAffiliation},
+ schema
+ {:zen.fhir/version "0.5.21-6",
+  :confirms
+  #{zen.fhir/Resource hl7-fhir-r4-core.OrganizationAffiliation/schema},
+  :zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-OrganizationAffiliation",
+  :require #{:active},
+  :type zen/map,
+  :zen/desc
+  "The OrganizationAffiliation resource describes relationships between two or more organizations, including the services one organization provides another, the location(s) where they provide services, the availability of those services, electronic endpoints, and other relevant information.",
+  :keys
+  {:_active {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :meta
+   {:confirms #{hl7-fhir-r4-core.Meta/schema},
+    :type zen/map,
+    :keys
+    {:lastUpdated {:confirms #{hl7-fhir-r4-core.instant/schema}},
+     :_lastUpdated {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+    :require #{:lastUpdated}},
+   :specialty
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS/value-set,
+      :strength :required}}},
+   :organization
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers
+     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+   :participatingOrganization
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers
+     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+   :active
+   {:match true,
+    :confirms #{hl7-fhir-r4-core.boolean/schema},
+    :fhir/flags #{:MS}},
+   :code
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-us-davinci-pdex-plan-net.value-set.OrganizationAffiliationRoleVS/value-set,
+      :strength :extensible}}},
+   :identifier
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Identifier/schema},
+     :type zen/map,
+     :keys
+     {:type
+      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+       :fhir/flags #{:MS}},
+      :value
+      {:confirms #{hl7-fhir-r4-core.string/schema},
+       :fhir/flags #{:MS}},
+      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}}}}},
+   :qualification
+   {:type zen/vector,
+    :every
+    {:confirms
+     #{hl7-fhir-us-davinci-pdex-plan-net.qualification/schema},
+     :fhir/extensionUri
+     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification"}},
+   :telecom
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.ContactPoint/schema},
+     :type zen/map,
+     :keys
+     {:system
+      {:confirms #{hl7-fhir-r4-core.code/schema}, :fhir/flags #{:MS}},
+      :_system {:confirms #{hl7-fhir-r4-core.Element/schema}},
+      :value
+      {:confirms #{hl7-fhir-r4-core.string/schema},
+       :fhir/flags #{:MS}},
+      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}},
+      :rank
+      {:confirms #{hl7-fhir-r4-core.positiveInt/schema},
+       :fhir/flags #{:MS}},
+      :_rank {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+     :fhir/flags #{:MS}}},
+   :network
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema}}}},
+   :period
+   {:confirms #{hl7-fhir-r4-core.Period/schema}, :fhir/flags #{:MS}},
+   :location
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+   :endpoint
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}},
+   :healthcareService
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema}}}}},
+  :zen.fhir/type "OrganizationAffiliation"}}

@@ -1,0 +1,25 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime,
+ import
+ #{hl7-fhir-r4-core.time
+   hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-r4-core.boolean},
+ schema
+ {:zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen/desc
+  "An extension representing the days and times a contact point is available",
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
+  :zen.fhir/version "0.5.21-6",
+  :type zen/map,
+  :keys
+  {:daysOfWeek
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.code/schema}, :fhir/flags #{:MS}}},
+   :allDay
+   {:confirms #{hl7-fhir-r4-core.boolean/schema}, :fhir/flags #{:MS}},
+   :availableStartTime
+   {:confirms #{hl7-fhir-r4-core.time/schema}, :fhir/flags #{:MS}},
+   :availableEndTime
+   {:confirms #{hl7-fhir-r4-core.time/schema}, :fhir/flags #{:MS}}}}}

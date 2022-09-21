@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "organizationaffiliation-endpoint",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

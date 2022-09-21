@@ -1,0 +1,24 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.via-intermediary,
+ import
+ #{zen.fhir
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-OrganizationAffiliation
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-PractitionerRole},
+ schema
+ {:zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen/desc
+  "A reference to an alternative point of contact (plannet-PractitionerRole, plannet-Organization, plannet-OrganizationAffiliation, or plannet-Location) for this organization",
+  :zen.fhir/type "Reference",
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+  :zen.fhir/version "0.5.21-6",
+  :confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+  :fhir/flags #{:MS},
+  :zen.fhir/reference
+  {:refers
+   #{hl7-fhir-us-davinci-pdex-plan-net.plannet-OrganizationAffiliation/schema
+     hl7-fhir-us-davinci-pdex-plan-net.plannet-PractitionerRole/schema
+     hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema
+     hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}}

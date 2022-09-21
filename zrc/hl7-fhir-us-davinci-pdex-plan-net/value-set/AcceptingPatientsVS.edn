@@ -1,0 +1,14 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Codes to identify if the practice is accepting new patients",
+  :zen.fhir/version "0.5.21-6",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/AcceptingPatientsCS",
+     :zen.fhir/content :bundled}},
+  :uri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/AcceptingPatientsVS",
+  :version "1.1.0"}}

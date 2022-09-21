@@ -1,0 +1,33 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.delivery-method,
+ import
+ #{zen.fhir
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.DeliveryMethodVS
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.VirtualModalitiesVS
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen.fhir/version "0.5.21-6",
+  :zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/delivery-method",
+  :require #{:type},
+  :type zen/map,
+  :zen/desc
+  "An extension describing the service delivery method.   If service delivery is virtual, one or more delivery modalities should be specified.",
+  :keys
+  {:type
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-us-davinci-pdex-plan-net.value-set.DeliveryMethodVS/value-set,
+     :strength :required},
+    :zen/desc "Physical or Virtual Service Delivery"},
+   :virtualModalities
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-us-davinci-pdex-plan-net.value-set.VirtualModalitiesVS/value-set,
+      :strength :extensible},
+     :zen/desc "Modalities of Virtual Delivery"}}}}}

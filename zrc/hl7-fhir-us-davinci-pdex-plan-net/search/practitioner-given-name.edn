@@ -1,0 +1,28 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-given-name,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "practitioner-given-name",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-given-name",
+  :fhir/type "string",
+  :name "given",
+  :expr
+  {:Practitioner
+   {:knife [["name" "given"]],
+    :jsonpath ["$.\"name\".\"given\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"name\".\"given\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

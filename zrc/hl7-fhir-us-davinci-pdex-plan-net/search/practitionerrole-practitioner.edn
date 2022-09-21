@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-practitioner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "practitionerrole-practitioner",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-practitioner",
+  :fhir/type "reference",
+  :name "practitioner",
+  :expr
+  {:PractitionerRole
+   {:knife [["practitioner"]],
+    :jsonpath ["$.\"practitioner\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

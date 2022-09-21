@@ -1,0 +1,17 @@
+{ns
+ hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Endpoint Connection Types",
+  :zen.fhir/version "0.5.21-6",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/EndpointConnectionTypeCS",
+     :zen.fhir/content :bundled}
+    {:fhir/url
+     "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+     :zen.fhir/content :bundled}},
+  :uri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointConnectionTypeVS",
+  :version "1.1.0"}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.value-set.QualificationStatusVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "The state indicating if a qualification is currently valid.",
+  :zen.fhir/version "0.5.21-6",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/QualificationStatusCS",
+     :zen.fhir/content :bundled}},
+  :uri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/QualificationStatusVS",
+  :version "1.1.0"}}

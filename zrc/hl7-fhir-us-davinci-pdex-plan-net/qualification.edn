@@ -1,0 +1,64 @@
+{ns hl7-fhir-us-davinci-pdex-plan-net.qualification,
+ import
+ #{hl7-fhir-r4-core.Period
+   hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+   hl7-fhir-us-core.value-set.us-core-usps-state
+   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-r4-core.Identifier
+   hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtyAndDegreeLicenseCertificateVS},
+ schema
+ {:zen.fhir/version "0.5.21-6",
+  :zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen.fhir/profileUri
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
+  :require #{:whereValid :status :code},
+  :type zen/map,
+  :zen/desc
+  "An extension to add qualifications for an organization (e.g. accreditation) or practitionerRole (e.g. registered to prescribe controlled substances).",
+  :keys
+  {:identifier
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Identifier/schema},
+     :fhir/flags #{:MS}}},
+   :code
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtyAndDegreeLicenseCertificateVS/value-set,
+     :strength :extensible}},
+   :issuer
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers
+     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+   :status
+   {:confirms #{hl7-fhir-r4-core.code/schema}, :fhir/flags #{:MS}},
+   :period
+   {:confirms #{hl7-fhir-r4-core.Period/schema}, :fhir/flags #{:MS}},
+   :whereValid
+   {:type zen/vector,
+    :every
+    {:fhir/polymorphic true,
+     :exclusive-keys #{#{:CodeableConcept :Reference}},
+     :type zen/map,
+     :keys
+     {:CodeableConcept
+      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+      :Reference
+      {:confirms
+       #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+       :zen.fhir/reference
+       {:refers
+        #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol hl7-fhir-us-core.value-set.us-core-usps-state/value-set,
+      :strength :required}},
+    :minItems 1}}}}

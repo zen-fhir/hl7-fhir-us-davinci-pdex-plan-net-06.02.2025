@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "healthcareservice-endpoint",
+  :fhir/url
+  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:HealthcareService
+   {:knife [["endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}
