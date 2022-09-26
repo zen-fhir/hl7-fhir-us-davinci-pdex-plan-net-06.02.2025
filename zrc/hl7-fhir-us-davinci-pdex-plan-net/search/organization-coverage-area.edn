@@ -10,4 +10,4 @@
   :name "coverage-area",
   :expr
   {:Organization
-   {:jsonpath [], :data-types #{}, :template :reference}}}}
+   {:knife [], :jsonpath [], :data-types #{}, :template :reference}}}}

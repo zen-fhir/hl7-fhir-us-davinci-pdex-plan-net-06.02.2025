@@ -9,4 +9,4 @@
   :name "network",
   :expr
   {:PractitionerRole
-   {:jsonpath [], :data-types #{}, :template :reference}}}}
+   {:knife [], :jsonpath [], :data-types #{}, :template :reference}}}}
