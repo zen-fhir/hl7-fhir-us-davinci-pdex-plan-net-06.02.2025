@@ -10,7 +10,7 @@
   "An extension representing the days and times a contact point is available",
   :zen.fhir/profileUri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
-  :zen.fhir/version "0.5.22",
+  :zen.fhir/version "0.5.22-1",
   :type zen/map,
   :keys
   {:daysOfWeek
