@@ -4,7 +4,7 @@
  value-set
  {:zen/tags #{zen.fhir/value-set},
   :zen/desc "Value Set for Organization Affiliation Roles",
-  :zen.fhir/version "0.5.25-1",
+  :zen.fhir/version "0.5.26",
   :fhir/code-systems
   #{{:fhir/url "http://hl7.org/fhir/organization-role",
      :zen.fhir/content :bundled}
@@ -13,4 +13,11 @@
      :zen.fhir/content :bundled}},
   :uri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/OrganizationAffiliationRoleVS",
-  :version "1.1.0"}}
+  :version "1.1.0",
+  :ftr
+  {:module "ig",
+   :source-url "node_modules/hl7.fhir.us.davinci-pdex-plan-net",
+   :source-type :ig,
+   :ftr-path "ftr",
+   :zen/package-name "hl7-fhir-us-davinci-pdex-plan-net",
+   :tag "init"}}}
