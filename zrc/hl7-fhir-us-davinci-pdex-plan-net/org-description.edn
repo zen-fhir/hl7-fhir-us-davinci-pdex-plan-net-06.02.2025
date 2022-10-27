@@ -7,6 +7,6 @@
   :zen.fhir/type "string",
   :zen.fhir/profileUri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/org-description",
-  :zen.fhir/version "0.5.26-4",
+  :zen.fhir/version "0.5.26-5",
   :confirms #{hl7-fhir-r4-core.string/schema},
   :fhir/flags #{:MS}}}

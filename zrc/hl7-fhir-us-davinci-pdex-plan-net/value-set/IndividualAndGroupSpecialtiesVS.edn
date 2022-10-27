@@ -5,7 +5,7 @@
  {:zen/tags #{zen.fhir/value-set},
   :zen/desc
   "Individual and Group Specialties from National Uniform Claim Committee (NUCC) Health Care Provider Taxonomy code set.",
-  :zen.fhir/version "0.5.26-4",
+  :zen.fhir/version "0.5.26-5",
   :fhir/code-systems
   #{{:fhir/url "http://nucc.org/provider-taxonomy",
      :zen.fhir/content :bundled}},
