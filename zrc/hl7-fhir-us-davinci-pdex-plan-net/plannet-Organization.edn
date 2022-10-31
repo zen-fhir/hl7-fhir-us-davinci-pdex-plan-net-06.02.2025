@@ -23,7 +23,7 @@
    hl7-fhir-r4-core.Address
    hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
  schema
- {:zen.fhir/version "0.5.26-5",
+ {:zen.fhir/version "0.5.27",
   :confirms
   #{hl7-fhir-us-core.us-core-organization/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
