@@ -3,7 +3,7 @@
  value-set
  {:zen/tags #{zen.fhir/value-set},
   :zen/desc "Categories of cost-sharing used by plans.",
-  :zen.fhir/version "0.5.28",
+  :zen.fhir/version "0.5.28-1",
   :fhir/code-systems
   #{{:fhir/url
      "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/InsurancePlanTypeCS",
