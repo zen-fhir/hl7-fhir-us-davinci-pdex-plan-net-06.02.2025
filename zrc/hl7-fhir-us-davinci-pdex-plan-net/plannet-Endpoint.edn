@@ -23,7 +23,7 @@
   :zen.fhir/type "Endpoint",
   :zen.fhir/profileUri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint",
-  :zen.fhir/version "0.5.33-1",
+  :zen.fhir/version "0.6.0",
   :confirms #{hl7-fhir-r4-core.Endpoint/schema zen.fhir/Resource},
   :type zen/map,
   :keys
