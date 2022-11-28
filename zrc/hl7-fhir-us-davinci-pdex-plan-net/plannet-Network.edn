@@ -1,27 +1,15 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-Network,
  import
- #{hl7-fhir-r4-core.BackboneElement
-   hl7-fhir-r4-core.code
-   zen.fhir
-   hl7-fhir-r4-core.ContactPoint
-   hl7-fhir-r4-core.boolean
-   hl7-fhir-r4-core.string
+ #{zen.fhir
    hl7-fhir-us-core.us-core-organization
-   hl7-fhir-r4-core.instant
    hl7-fhir-us-davinci-pdex-plan-net.value-set.NetworkTypeVS
-   hl7-fhir-r4-core.HumanName
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
-   hl7-fhir-r4-core.Meta
-   hl7-fhir-r4-core.Reference
-   hl7-fhir-r4-core.Element
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
-   hl7-fhir-r4-core.CodeableConcept
-   hl7-fhir-r4-core.Identifier
    hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
    hl7-fhir-us-davinci-pdex-plan-net.location-reference
    hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
  schema
- {:zen.fhir/version "0.6.3",
+ {:zen.fhir/version "0.6.4",
   :confirms
   #{hl7-fhir-us-core.us-core-organization/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -32,37 +20,21 @@
   :zen/desc
   "A Network refers to a healthcare provider insurance network. A healthcare provider insurance network is an aggregation of organizations and individuals that deliver a set of services across a geography through health insurance products/plans. A network is typically owned by a payer.\n\nIn the PlanNet IG, individuals and organizations are represented as participants in a PLan-Net Network through the practitionerRole and Plan-Net-organizationAffiliation resources, respectively.",
   :keys
-  {:_active {:confirms #{hl7-fhir-r4-core.Element/schema}},
-   :meta
-   {:confirms #{hl7-fhir-r4-core.Meta/schema},
-    :type zen/map,
-    :keys
-    {:lastUpdated {:confirms #{hl7-fhir-r4-core.instant/schema}},
-     :_lastUpdated {:confirms #{hl7-fhir-r4-core.Element/schema}}},
-    :require #{:lastUpdated}},
+  {:meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
    :type
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
      :zen.fhir/value-set
      {:symbol
       hl7-fhir-us-davinci-pdex-plan-net.value-set.NetworkTypeVS/value-set,
       :strength :required}},
     :minItems 1,
     :maxItems 1},
-   :active
-   {:const {:value true},
-    :confirms #{hl7-fhir-r4-core.boolean/schema}},
+   :active {:const {:value true}},
    :identifier
    {:type zen/vector,
-    :every
-    {:confirms #{hl7-fhir-r4-core.Identifier/schema},
-     :type zen/map,
-     :keys
-     {:type
-      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-       :fhir/flags #{:MS}}}}},
+    :every {:type zen/map, :keys {:type #:fhir{:flags #{:MS}}}}},
    :location-reference
    {:type zen/vector,
     :every
@@ -72,13 +44,10 @@
      "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference",
      :fhir/flags #{:MS},
      :zen/desc "Network coverage area"}},
-   :telecom
-   {:type zen/vector,
-    :every {:confirms #{hl7-fhir-r4-core.ContactPoint/schema}},
-    :maxItems 0},
+   :telecom {:type zen/vector, :every {}, :maxItems 0},
    :partOf
-   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-    :fhir/flags #{:MS},
+   {:fhir/flags #{:MS},
+    :confirms #{zen.fhir/Reference},
     :zen.fhir/reference
     {:refers
      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}},
@@ -86,25 +55,21 @@
    :endpoint
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
+     :confirms #{zen.fhir/Reference},
      :zen.fhir/reference
      {:refers
       #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}},
    :contact
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
-     :type zen/map,
+    {:type zen/map,
      :keys
-     {:name
-      {:confirms #{hl7-fhir-r4-core.HumanName/schema},
-       :fhir/flags #{:MS}},
+     {:name #:fhir{:flags #{:MS}},
       :telecom
       {:type zen/vector,
        :every
-       {:confirms #{hl7-fhir-r4-core.ContactPoint/schema},
-        :type zen/map,
+       {:type zen/map,
         :keys
         {:contactpoint-availabletime
          {:type zen/vector,
@@ -121,14 +86,8 @@
            :fhir/extensionUri
            "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
            :zen/desc "Via Intermediary"}},
-         :system
-         {:confirms #{hl7-fhir-r4-core.code/schema},
-          :fhir/flags #{:MS}},
-         :_system {:confirms #{hl7-fhir-r4-core.Element/schema}},
-         :value
-         {:confirms #{hl7-fhir-r4-core.string/schema},
-          :fhir/flags #{:MS}},
-         :_value {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+         :system #:fhir{:flags #{:MS}},
+         :value #:fhir{:flags #{:MS}}},
         :fhir/flags #{:MS}}}},
      :fhir/flags #{:MS}}}},
   :zen.fhir/type "Organization"}}

@@ -1,36 +1,22 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-PractitionerRole,
  import
- #{hl7-fhir-r4-core.Period
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS
+ #{hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS
    hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS
-   hl7-fhir-r4-core.BackboneElement
-   hl7-fhir-r4-core.time
-   hl7-fhir-r4-core.code
    zen.fhir
    hl7-fhir-us-davinci-pdex-plan-net.newpatients
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
-   hl7-fhir-r4-core.ContactPoint
-   hl7-fhir-r4-core.boolean
    hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService
-   hl7-fhir-r4-core.string
-   hl7-fhir-r4-core.instant
    hl7-fhir-r4-core.PractitionerRole
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner
    hl7-fhir-us-davinci-pdex-plan-net.network-reference
    hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
-   hl7-fhir-r4-core.Meta
-   hl7-fhir-r4-core.Reference
-   hl7-fhir-r4-core.positiveInt
-   hl7-fhir-r4-core.Element
    hl7-fhir-us-davinci-pdex-plan-net.qualification
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
-   hl7-fhir-r4-core.CodeableConcept
-   hl7-fhir-r4-core.Identifier
    hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
    hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
  schema
- {:zen.fhir/version "0.6.3",
+ {:zen.fhir/version "0.6.4",
   :confirms
   #{hl7-fhir-r4-core.PractitionerRole/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -41,46 +27,22 @@
   :zen/desc
   "PractionerRole describes details about a provider, which can be a practitioner or an organization. When the provider is a practitioner, \nthere may be a relationship to an organization. A provider renders services to patients at a location. When the provider is a practitioner, there may also \nbe a relationship to an organization. Practitioner participation in healthcare provider insurance networks may be direct or through their role at an organization.",
   :keys
-  {:_active {:confirms #{hl7-fhir-r4-core.Element/schema}},
-   :availableTime
+  {:availableTime
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
-     :type zen/map,
+    {:type zen/map,
      :keys
-     {:daysOfWeek
-      {:type zen/vector,
-       :every
-       {:confirms #{hl7-fhir-r4-core.code/schema},
-        :fhir/flags #{:MS}}},
-      :_daysOfWeek
-      {:type zen/vector,
-       :every {:confirms #{hl7-fhir-r4-core.Element/schema}}},
-      :allDay
-      {:confirms #{hl7-fhir-r4-core.boolean/schema},
-       :fhir/flags #{:MS}},
-      :_allDay {:confirms #{hl7-fhir-r4-core.Element/schema}},
-      :availableStartTime
-      {:confirms #{hl7-fhir-r4-core.time/schema}, :fhir/flags #{:MS}},
-      :_availableStartTime
-      {:confirms #{hl7-fhir-r4-core.Element/schema}},
-      :availableEndTime
-      {:confirms #{hl7-fhir-r4-core.time/schema}, :fhir/flags #{:MS}},
-      :_availableEndTime
-      {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+     {:daysOfWeek {:type zen/vector, :every #:fhir{:flags #{:MS}}},
+      :_daysOfWeek {:type zen/vector, :every {}},
+      :allDay #:fhir{:flags #{:MS}},
+      :availableStartTime #:fhir{:flags #{:MS}},
+      :availableEndTime #:fhir{:flags #{:MS}}},
      :fhir/flags #{:MS}}},
-   :meta
-   {:confirms #{hl7-fhir-r4-core.Meta/schema},
-    :type zen/map,
-    :keys
-    {:lastUpdated {:confirms #{hl7-fhir-r4-core.instant/schema}},
-     :_lastUpdated {:confirms #{hl7-fhir-r4-core.Element/schema}}},
-    :require #{:lastUpdated}},
+   :meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
    :specialty
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
      :zen.fhir/value-set
      {:symbol
       hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS/value-set,
@@ -88,16 +50,10 @@
    :notAvailable
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
-     :type zen/map,
+    {:type zen/map,
      :keys
-     {:description
-      {:confirms #{hl7-fhir-r4-core.string/schema},
-       :fhir/flags #{:MS}},
-      :_description {:confirms #{hl7-fhir-r4-core.Element/schema}},
-      :during
-      {:confirms #{hl7-fhir-r4-core.Period/schema},
-       :fhir/flags #{:MS}}},
+     {:description #:fhir{:flags #{:MS}},
+      :during #:fhir{:flags #{:MS}}},
      :fhir/flags #{:MS}}},
    :newpatients
    {:type zen/vector,
@@ -108,20 +64,16 @@
      :fhir/flags #{:MS},
      :zen/desc "New Patients"}},
    :organization
-   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-    :fhir/flags #{:MS},
+   {:fhir/flags #{:MS},
+    :confirms #{zen.fhir/Reference},
     :zen.fhir/reference
     {:refers
      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
-   :active
-   {:match true,
-    :confirms #{hl7-fhir-r4-core.boolean/schema},
-    :fhir/flags #{:MS}},
+   :active {:match true, :fhir/flags #{:MS}},
    :code
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
      :zen.fhir/value-set
      {:symbol
       hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS/value-set,
@@ -129,19 +81,12 @@
    :identifier
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.Identifier/schema},
-     :type zen/map,
+    {:type zen/map,
      :keys
-     {:type
-      {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-       :fhir/flags #{:MS}},
-      :value
-      {:confirms #{hl7-fhir-r4-core.string/schema},
-       :fhir/flags #{:MS}},
-      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}}}}},
+     {:type #:fhir{:flags #{:MS}}, :value #:fhir{:flags #{:MS}}}}},
    :practitioner
-   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-    :fhir/flags #{:MS},
+   {:fhir/flags #{:MS},
+    :confirms #{zen.fhir/Reference},
     :zen.fhir/reference
     {:refers
      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner/schema}}},
@@ -168,8 +113,7 @@
    :telecom
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.ContactPoint/schema},
-     :type zen/map,
+    {:type zen/map,
      :keys
      {:contactpoint-availabletime
       {:type zen/vector,
@@ -188,42 +132,33 @@
         "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
         :fhir/flags #{:MS},
         :zen/desc "Via Intermediary"}},
-      :system
-      {:confirms #{hl7-fhir-r4-core.code/schema}, :fhir/flags #{:MS}},
-      :_system {:confirms #{hl7-fhir-r4-core.Element/schema}},
-      :value
-      {:confirms #{hl7-fhir-r4-core.string/schema},
-       :fhir/flags #{:MS}},
-      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}},
-      :rank
-      {:confirms #{hl7-fhir-r4-core.positiveInt/schema},
-       :fhir/flags #{:MS}},
-      :_rank {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+      :system #:fhir{:flags #{:MS}},
+      :value #:fhir{:flags #{:MS}},
+      :rank #:fhir{:flags #{:MS}}},
      :require #{:system :value},
      :fhir/flags #{:MS}}},
-   :period
-   {:confirms #{hl7-fhir-r4-core.Period/schema}, :fhir/flags #{:MS}},
+   :period #:fhir{:flags #{:MS}},
    :location
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
+     :confirms #{zen.fhir/Reference},
      :zen.fhir/reference
      {:refers
       #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
    :endpoint
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
+     :confirms #{zen.fhir/Reference},
      :zen.fhir/reference
      {:refers
       #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}},
    :healthcareService
    {:type zen/vector,
     :every
-    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-     :fhir/flags #{:MS},
+    {:fhir/flags #{:MS},
+     :confirms #{zen.fhir/Reference},
      :zen.fhir/reference
      {:refers
       #{hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema}}}},
