@@ -13,7 +13,7 @@
    hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
    hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
  schema
- {:zen.fhir/version "0.6.4",
+ {:zen.fhir/version "0.6.5",
   :confirms
   #{hl7-fhir-r4-core.HealthcareService/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -48,12 +48,11 @@
     {:type zen/map,
      :keys
      {:daysOfWeek {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-      :_daysOfWeek {:type zen/vector, :every {}},
       :allDay #:fhir{:flags #{:MS}},
       :availableStartTime #:fhir{:flags #{:MS}},
       :availableEndTime #:fhir{:flags #{:MS}}},
      :fhir/flags #{:MS}}},
-   :meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
+   :meta {:type zen/map, :require #{:lastUpdated}},
    :specialty
    {:type zen/vector,
     :every

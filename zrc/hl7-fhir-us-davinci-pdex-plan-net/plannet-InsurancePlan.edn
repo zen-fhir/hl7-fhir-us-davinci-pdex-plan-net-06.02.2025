@@ -9,7 +9,7 @@
    hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
    hl7-fhir-us-davinci-pdex-plan-net.value-set.InsurancePlanTypeVS},
  schema
- {:zen.fhir/version "0.6.4",
+ {:zen.fhir/version "0.6.5",
   :confirms #{hl7-fhir-r4-core.InsurancePlan/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
   :zen.fhir/profileUri
@@ -27,7 +27,7 @@
      :zen.fhir/reference
      {:refers
       #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
-   :meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
+   :meta {:type zen/map, :require #{:lastUpdated}},
    :name #:fhir{:flags #{:MS}},
    :type
    {:type zen/vector,
@@ -74,7 +74,6 @@
      {:refers
       #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema}}}},
    :period #:fhir{:flags #{:MS}},
-   :_alias {:type zen/vector, :every {}},
    :plan
    {:type zen/vector,
     :every

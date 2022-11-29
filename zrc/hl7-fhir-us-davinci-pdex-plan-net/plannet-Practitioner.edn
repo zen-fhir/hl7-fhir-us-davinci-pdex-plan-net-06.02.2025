@@ -9,7 +9,7 @@
    hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification
    hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
  schema
- {:zen.fhir/version "0.6.4",
+ {:zen.fhir/version "0.6.5",
   :confirms
   #{hl7-fhir-us-core.us-core-practitioner/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -31,15 +31,14 @@
        "http://hl7.org/fhir/StructureDefinition/geolocation",
        :fhir/flags #{:MS}}},
      :fhir/flags #{:MS}}},
-   :meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
+   :meta {:type zen/map, :require #{:lastUpdated}},
    :name
    {:type zen/vector,
     :every
     {:type zen/map,
      :keys
      {:text #:fhir{:flags #{:MS}},
-      :given {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-      :_given {:type zen/vector, :every {}}}}},
+      :given {:type zen/vector, :every #:fhir{:flags #{:MS}}}}}},
    :active {:match true, :fhir/flags #{:MS}},
    :communication
    {:type zen/vector,

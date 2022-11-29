@@ -13,7 +13,7 @@
   :zen.fhir/type "Endpoint",
   :zen.fhir/profileUri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint",
-  :zen.fhir/version "0.6.4",
+  :zen.fhir/version "0.6.5",
   :confirms #{hl7-fhir-r4-core.Endpoint/schema zen.fhir/Resource},
   :type zen/map,
   :keys
@@ -24,7 +24,7 @@
      hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS/value-set,
      :strength :extensible}},
    :address #:fhir{:flags #{:MS}},
-   :meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
+   :meta {:type zen/map, :require #{:lastUpdated}},
    :managingOrganization
    {:fhir/flags #{:MS},
     :confirms #{zen.fhir/Reference},
@@ -58,5 +58,4 @@
     {:type zen/map,
      :keys
      {:system #:fhir{:flags #{:MS}}, :value #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :_payloadMimeType {:type zen/vector, :every {}}}}}
+     :fhir/flags #{:MS}}}}}}

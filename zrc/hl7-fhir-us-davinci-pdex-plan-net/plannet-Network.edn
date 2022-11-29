@@ -9,7 +9,7 @@
    hl7-fhir-us-davinci-pdex-plan-net.location-reference
    hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
  schema
- {:zen.fhir/version "0.6.4",
+ {:zen.fhir/version "0.6.5",
   :confirms
   #{hl7-fhir-us-core.us-core-organization/schema zen.fhir/Resource},
   :zen/tags #{zen.fhir/profile-schema zen/schema},
@@ -20,7 +20,7 @@
   :zen/desc
   "A Network refers to a healthcare provider insurance network. A healthcare provider insurance network is an aggregation of organizations and individuals that deliver a set of services across a geography through health insurance products/plans. A network is typically owned by a payer.\n\nIn the PlanNet IG, individuals and organizations are represented as participants in a PLan-Net Network through the practitionerRole and Plan-Net-organizationAffiliation resources, respectively.",
   :keys
-  {:meta {:type zen/map, :keys {}, :require #{:lastUpdated}},
+  {:meta {:type zen/map, :require #{:lastUpdated}},
    :type
    {:type zen/vector,
     :every
@@ -44,7 +44,7 @@
      "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference",
      :fhir/flags #{:MS},
      :zen/desc "Network coverage area"}},
-   :telecom {:type zen/vector, :every {}, :maxItems 0},
+   :telecom {:type zen/vector, :maxItems 0},
    :partOf
    {:fhir/flags #{:MS},
     :confirms #{zen.fhir/Reference},
