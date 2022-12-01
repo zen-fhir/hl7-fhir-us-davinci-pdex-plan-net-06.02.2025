@@ -11,7 +11,7 @@
    hl7-fhir-r4-core.Identifier
    hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtyAndDegreeLicenseCertificateVS},
  schema
- {:zen.fhir/version "0.6.5",
+ {:zen.fhir/version "0.6.6",
   :zen/tags #{zen/schema zen.fhir/structure-schema},
   :zen.fhir/profileUri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
@@ -46,8 +46,8 @@
    {:type zen/vector,
     :every
     {:fhir/polymorphic true,
-     :exclusive-keys #{#{:CodeableConcept :Reference}},
      :type zen/map,
+     :exclusive-keys #{#{:CodeableConcept :Reference}},
      :keys
      {:CodeableConcept
       {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
