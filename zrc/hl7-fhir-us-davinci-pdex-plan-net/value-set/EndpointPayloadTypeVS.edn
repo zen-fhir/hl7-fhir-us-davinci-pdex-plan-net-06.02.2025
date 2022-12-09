@@ -4,7 +4,7 @@
  {:zen/tags #{zen.fhir/value-set},
   :zen/desc
   "Endpoint Payload Types are constrained to NA (Not Applicable) as part of this IG",
-  :zen.fhir/version "0.6.6",
+  :zen.fhir/version "0.6.6-7",
   :fhir/code-systems
   #{{:fhir/url
      "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/EndpointPayloadTypeCS",

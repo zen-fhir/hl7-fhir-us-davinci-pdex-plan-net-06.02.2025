@@ -7,7 +7,7 @@
   :zen.fhir/type "Reference",
   :zen.fhir/profileUri
   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
-  :zen.fhir/version "0.6.6",
+  :zen.fhir/version "0.6.6-7",
   :confirms #{zen.fhir/Reference},
   :fhir/flags #{:MS},
   :zen.fhir/reference
