@@ -1,114 +1,75 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-Location,
- import
- #{zen.fhir
-   hl7-fhir-us-davinci-pdex-plan-net.newpatients
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
-   hl7-fhir-us-davinci-pdex-plan-net.accessibility
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
-   hl7-fhir-r4-core.location-boundary-geojson
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
-   hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
-   hl7-fhir-us-core.us-core-location
-   hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema
- {:zen.fhir/version "0.6.6-7",
-  :confirms
-  #{hl7-fhir-us-core.us-core-location/schema zen.fhir/Resource},
-  :zen/tags #{zen.fhir/profile-schema zen/schema},
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Location",
-  :require #{:status},
-  :type zen/map,
-  :zen/desc
-  "A Location is the physical place where healthcare services are provided, practitioners are employed, \n                 organizations are based, etc. Locations can range in scope from a room in a building to a geographic region/area.",
-  :keys
-  {:description #:fhir{:flags #{:MS}},
-   :meta {:type zen/map, :require #{:lastUpdated}},
-   :managingOrganization
-   {:confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
-   :accessibility
-   {:type zen/vector,
-    :every
-    {:confirms
-     #{hl7-fhir-us-davinci-pdex-plan-net.accessibility/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility",
-     :fhir/flags #{:MS},
-     :zen/desc "Accessibility"}},
-   :newpatients
-   {:type zen/vector,
-    :every
-    {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
-     :fhir/flags #{:MS},
-     :zen/desc "New Patients"}},
-   :type {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-   :region
-   {:confirms #{hl7-fhir-r4-core.location-boundary-geojson/schema},
-    :fhir/extensionUri
-    "http://hl7.org/fhir/StructureDefinition/location-boundary-geojson",
-    :fhir/flags #{:MS},
-    :zen/desc "Associated Region (GeoJSON)"},
-   :alias {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-   :status {:const {:value "active"}},
-   :identifier
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:type #:fhir{:flags #{:MS}}, :value #:fhir{:flags #{:MS}}}}},
-   :hoursOfOperation
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:daysOfWeek {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-      :allDay #:fhir{:flags #{:MS}},
-      :openingTime #:fhir{:flags #{:MS}},
-      :closingTime #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :availabilityExceptions #:fhir{:flags #{:MS}},
-   :position #:fhir{:flags #{:MS}},
-   :telecom
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:contactpoint-availabletime
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
-        :fhir/flags #{:MS}}},
-      :via-intermediary
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-        :fhir/flags #{:MS},
-        :zen/desc "Via Intermediary"}},
-      :system #:fhir{:flags #{:MS}},
-      :value #:fhir{:flags #{:MS}}}}},
-   :partOf
-   {:fhir/flags #{:MS},
-    :confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}},
-   :endpoint
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}}},
-  :zen.fhir/type "Location"}}
+ import #{zen.fhir
+          hl7-fhir-us-davinci-pdex-plan-net.newpatients
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+          hl7-fhir-us-davinci-pdex-plan-net.accessibility
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+          hl7-fhir-r4-core.location-boundary-geojson
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
+          hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
+          hl7-fhir-us-core.us-core-location
+          hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
+ schema {:zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-us-core.us-core-location/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Location",
+         :require #{:status},
+         :type zen/map,
+         :zen/desc "A Location is the physical place where healthcare services are provided, practitioners are employed, \n                 organizations are based, etc. Locations can range in scope from a room in a building to a geographic region/area.",
+         :keys {:description {:fhir/flags #{:MS}},
+                :meta {:type zen/map, :require #{:lastUpdated}},
+                :managingOrganization {:confirms #{zen.fhir/Reference},
+                                       :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+                :accessibility {:type zen/vector,
+                                :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.accessibility/schema},
+                                        :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility",
+                                        :fhir/flags #{:MS},
+                                        :zen/desc "Accessibility"}},
+                :newpatients {:type zen/vector,
+                              :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema},
+                                      :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
+                                      :fhir/flags #{:MS},
+                                      :zen/desc "New Patients"}},
+                :type {:type zen/vector, :every {:fhir/flags #{:MS}}},
+                :region {:confirms #{hl7-fhir-r4-core.location-boundary-geojson/schema},
+                         :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/location-boundary-geojson",
+                         :fhir/flags #{:MS},
+                         :zen/desc "Associated Region (GeoJSON)"},
+                :alias {:type zen/vector, :every {:fhir/flags #{:MS}}},
+                :status {:const {:value "active"}},
+                :identifier {:type zen/vector,
+                             :every {:type zen/map,
+                                     :keys {:type {:fhir/flags #{:MS}},
+                                            :value {:fhir/flags #{:MS}}}}},
+                :hoursOfOperation {:type zen/vector,
+                                   :every {:type zen/map,
+                                           :keys {:daysOfWeek {:type zen/vector,
+                                                               :every {:fhir/flags #{:MS}}},
+                                                  :allDay {:fhir/flags #{:MS}},
+                                                  :openingTime {:fhir/flags #{:MS}},
+                                                  :closingTime {:fhir/flags #{:MS}}},
+                                           :fhir/flags #{:MS}}},
+                :availabilityExceptions {:fhir/flags #{:MS}},
+                :position {:fhir/flags #{:MS}},
+                :telecom {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:contactpoint-availabletime {:type zen/vector,
+                                                                      :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
+                                                                              :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
+                                                                              :fhir/flags #{:MS}}},
+                                         :via-intermediary {:type zen/vector,
+                                                            :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
+                                                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+                                                                    :fhir/flags #{:MS},
+                                                                    :zen/desc "Via Intermediary"}},
+                                         :system {:fhir/flags #{:MS}},
+                                         :value {:fhir/flags #{:MS}}}}},
+                :partOf {:fhir/flags #{:MS},
+                         :confirms #{zen.fhir/Reference},
+                         :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}},
+                :endpoint {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}}},
+         :zen.fhir/type "Location"}}

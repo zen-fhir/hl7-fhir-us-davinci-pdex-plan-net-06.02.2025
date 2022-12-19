@@ -1,16 +1,12 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-specialty,
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-specialty,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "practitionerrole-specialty",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-specialty",
-  :fhir/type "token",
-  :name "specialty",
-  :expr
-  {:PractitionerRole
-   {:knife [["specialty"]],
-    :jsonpath ["$.\"specialty\"[*]"],
-    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
-    :template :token}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "practitionerrole-specialty",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-specialty",
+         :fhir/type "token",
+         :name "specialty",
+         :expr {:PractitionerRole {:knife [["specialty"]],
+                                   :jsonpath ["$.\"specialty\"[*]"],
+                                   :data-types #{{:type "CodeableConcept",
+                                                  :polymorphic? false}},
+                                   :template :token}}}}

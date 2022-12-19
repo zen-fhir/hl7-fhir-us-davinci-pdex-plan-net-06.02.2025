@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.organization-endpoint,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "organization-endpoint",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-endpoint",
-  :fhir/type "reference",
-  :name "endpoint",
-  :expr
-  {:Organization
-   {:knife [["endpoint"]],
-    :jsonpath ["$.\"endpoint\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "organization-endpoint",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-endpoint",
+         :fhir/type "reference",
+         :name "endpoint",
+         :expr {:Organization {:knife [["endpoint"]],
+                               :jsonpath ["$.\"endpoint\"[*]"],
+                               :data-types #{{:type "Reference",
+                                              :polymorphic? false}},
+                               :template :reference}}}}

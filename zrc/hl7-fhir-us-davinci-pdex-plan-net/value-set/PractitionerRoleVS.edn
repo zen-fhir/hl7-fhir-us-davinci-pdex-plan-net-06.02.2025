@@ -1,23 +1,16 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS,
  import #{zen.fhir},
- value-set
- {:zen/tags #{zen.fhir/value-set},
-  :zen/desc
-  "Codes for the capabilities that an individual, group, or organization is acknowledged to have in a payer network, including general codes from the HL7 PractitionerRole Code System.",
-  :zen.fhir/version "0.6.6-7",
-  :fhir/code-systems
-  #{{:fhir/url
-     "http://terminology.hl7.org/CodeSystem/practitioner-role",
-     :zen.fhir/content :bundled}
-    {:fhir/url
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/ProviderRoleCS",
-     :zen.fhir/content :bundled}},
-  :uri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/PractitionerRoleVS",
-  :version "1.1.0",
-  :ftr
-  {:module "ig",
-   :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
-   :source-type :igs,
-   :ftr-path "ftr",
-   :tag "init"}}}
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "Codes for the capabilities that an individual, group, or organization is acknowledged to have in a payer network, including general codes from the HL7 PractitionerRole Code System.",
+            :zen.fhir/version "0.6.6-8",
+            :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/practitioner-role",
+                                  :zen.fhir/content :bundled}
+                                 {:fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/ProviderRoleCS",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/PractitionerRoleVS",
+            :version "1.1.0",
+            :ftr {:module "ig",
+                  :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
+                  :source-type :igs,
+                  :ftr-path "ftr",
+                  :tag "init"}}}

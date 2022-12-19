@@ -1,28 +1,25 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-name,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "healthcareservice-name",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-name",
-  :fhir/type "string",
-  :name "name",
-  :expr
-  {:HealthcareService
-   {:knife [["name"]],
-    :jsonpath ["$.\"name\"[*]"],
-    :data-types #{{:type "string", :polymorphic? false}},
-    :template :string,
-    :sql
-    {:where
-     [:or
-      [:ilike
-       [:pg/cast
-        [:pg/jsonb-path-query-array
-         [:pg/sql "{{table}}.resource"]
-         [:pg/cast
-          "($.\"name\"[*]).** ? (@.type() == \"string\")"
-          :jsonpath]]
-        :text]
-       [:pg/sql "{{param}}"]]],
-     :parameter-format "%\"?%"}}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "healthcareservice-name",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-name",
+         :fhir/type "string",
+         :name "name",
+         :expr {:HealthcareService {:knife [["name"]],
+                                    :jsonpath ["$.\"name\"[*]"],
+                                    :data-types #{{:type "string",
+                                                   :polymorphic? false}},
+                                    :template :string,
+                                    :sql {:where [:or
+                                                  [:ilike
+                                                   [:pg/cast
+                                                    [:pg/jsonb-path-query-array
+                                                     [:pg/sql
+                                                      "{{table}}.resource"]
+                                                     [:pg/cast
+                                                      "($.\"name\"[*]).** ? (@.type() == \"string\")"
+                                                      :jsonpath]]
+                                                    :text]
+                                                   [:pg/sql
+                                                    "{{param}}"]]],
+                                          :parameter-format "%\"?%"}}}}}

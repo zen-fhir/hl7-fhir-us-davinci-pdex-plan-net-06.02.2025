@@ -1,172 +1,107 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-PractitionerRole,
- import
- #{hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS
-   zen.fhir
-   hl7-fhir-us-davinci-pdex-plan-net.newpatients
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService
-   hl7-fhir-r4-core.PractitionerRole
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner
-   hl7-fhir-us-davinci-pdex-plan-net.network-reference
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
-   hl7-fhir-us-davinci-pdex-plan-net.qualification
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
-   hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
-   hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema
- {:zen.fhir/version "0.6.6-7",
-  :confirms
-  #{hl7-fhir-r4-core.PractitionerRole/schema zen.fhir/Resource},
-  :zen/tags #{zen.fhir/profile-schema zen/schema},
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-PractitionerRole",
-  :require #{:active},
-  :type zen/map,
-  :zen/desc
-  "PractionerRole describes details about a provider, which can be a practitioner or an organization. When the provider is a practitioner, \nthere may be a relationship to an organization. A provider renders services to patients at a location. When the provider is a practitioner, there may also \nbe a relationship to an organization. Practitioner participation in healthcare provider insurance networks may be direct or through their role at an organization.",
-  :keys
-  {:availableTime
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:daysOfWeek {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-      :allDay #:fhir{:flags #{:MS}},
-      :availableStartTime #:fhir{:flags #{:MS}},
-      :availableEndTime #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :meta {:type zen/map, :require #{:lastUpdated}},
-   :specialty
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS/value-set,
-      :strength :required}}},
-   :notAvailable
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:description #:fhir{:flags #{:MS}},
-      :during #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :newpatients
-   {:type zen/vector,
-    :every
-    {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
-     :fhir/flags #{:MS},
-     :zen/desc "New Patients"}},
-   :organization
-   {:fhir/flags #{:MS},
-    :confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
-   :active {:match true, :fhir/flags #{:MS}},
-   :code
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS/value-set,
-      :strength :required}}},
-   :identifier
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:type #:fhir{:flags #{:MS}}, :value #:fhir{:flags #{:MS}}}}},
-   :practitioner
-   {:fhir/flags #{:MS},
-    :confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner/schema}}},
-   :qualification
-   {:type zen/vector,
-    :every
-    {:confirms
-     #{hl7-fhir-us-davinci-pdex-plan-net.qualification/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
-     :type zen/map,
-     :keys
-     {:code
-      {:type zen/map,
-       :keys
-       {:value
-        {:fhir/polymorphic true,
+ import #{hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS
+          zen.fhir
+          hl7-fhir-us-davinci-pdex-plan-net.newpatients
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService
+          hl7-fhir-r4-core.PractitionerRole
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner
+          hl7-fhir-us-davinci-pdex-plan-net.network-reference
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+          hl7-fhir-us-davinci-pdex-plan-net.qualification
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
+          hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
+          hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
+ schema {:zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-r4-core.PractitionerRole/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-PractitionerRole",
+         :require #{:active},
          :type zen/map,
-         :zen.fhir/value-set
-         {:symbol
-          hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
-          :strength :extensible}}}}},
-     :fhir/flags #{:MS},
-     :zen/desc "Qualification"}},
-   :telecom
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:contactpoint-availabletime
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
-        :fhir/flags #{:MS}}},
-      :via-intermediary
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-        :fhir/flags #{:MS},
-        :zen/desc "Via Intermediary"}},
-      :system #:fhir{:flags #{:MS}},
-      :value #:fhir{:flags #{:MS}},
-      :rank #:fhir{:flags #{:MS}}},
-     :require #{:system :value},
-     :fhir/flags #{:MS}}},
-   :period #:fhir{:flags #{:MS}},
-   :location
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
-   :endpoint
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}},
-   :healthcareService
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema}}}},
-   :network-reference
-   {:confirms
-    #{hl7-fhir-us-davinci-pdex-plan-net.network-reference/schema},
-    :fhir/extensionUri
-    "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
-    :fhir/flags #{:MS},
-    :zen/desc "NetworkReference"}},
-  :zen.fhir/type "PractitionerRole"}}
+         :zen/desc "PractionerRole describes details about a provider, which can be a practitioner or an organization. When the provider is a practitioner, \nthere may be a relationship to an organization. A provider renders services to patients at a location. When the provider is a practitioner, there may also \nbe a relationship to an organization. Practitioner participation in healthcare provider insurance networks may be direct or through their role at an organization.",
+         :keys {:availableTime {:type zen/vector,
+                                :every {:type zen/map,
+                                        :keys {:daysOfWeek {:type zen/vector,
+                                                            :every {:fhir/flags #{:MS}}},
+                                               :allDay {:fhir/flags #{:MS}},
+                                               :availableStartTime {:fhir/flags #{:MS}},
+                                               :availableEndTime {:fhir/flags #{:MS}}},
+                                        :fhir/flags #{:MS}}},
+                :meta {:type zen/map, :require #{:lastUpdated}},
+                :specialty {:type zen/vector,
+                            :every {:fhir/flags #{:MS},
+                                    :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS/value-set,
+                                                         :strength :required}}},
+                :notAvailable {:type zen/vector,
+                               :every {:type zen/map,
+                                       :keys {:description {:fhir/flags #{:MS}},
+                                              :during {:fhir/flags #{:MS}}},
+                                       :fhir/flags #{:MS}}},
+                :newpatients {:type zen/vector,
+                              :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema},
+                                      :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
+                                      :fhir/flags #{:MS},
+                                      :zen/desc "New Patients"}},
+                :organization {:fhir/flags #{:MS},
+                               :confirms #{zen.fhir/Reference},
+                               :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+                :active {:match true, :fhir/flags #{:MS}},
+                :code {:type zen/vector,
+                       :every {:fhir/flags #{:MS},
+                               :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS/value-set,
+                                                    :strength :required}}},
+                :identifier {:type zen/vector,
+                             :every {:type zen/map,
+                                     :keys {:type {:fhir/flags #{:MS}},
+                                            :value {:fhir/flags #{:MS}}}}},
+                :practitioner {:fhir/flags #{:MS},
+                               :confirms #{zen.fhir/Reference},
+                               :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner/schema}}},
+                :qualification {:type zen/vector,
+                                :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.qualification/schema},
+                                        :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
+                                        :type zen/map,
+                                        :keys {:code {:type zen/map,
+                                                      :keys {:value {:fhir/polymorphic true,
+                                                                     :type zen/map,
+                                                                     :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
+                                                                                          :strength :extensible}}}}},
+                                        :fhir/flags #{:MS},
+                                        :zen/desc "Qualification"}},
+                :telecom {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:contactpoint-availabletime {:type zen/vector,
+                                                                      :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
+                                                                              :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
+                                                                              :fhir/flags #{:MS}}},
+                                         :via-intermediary {:type zen/vector,
+                                                            :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
+                                                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+                                                                    :fhir/flags #{:MS},
+                                                                    :zen/desc "Via Intermediary"}},
+                                         :system {:fhir/flags #{:MS}},
+                                         :value {:fhir/flags #{:MS}},
+                                         :rank {:fhir/flags #{:MS}}},
+                                  :require #{:system :value},
+                                  :fhir/flags #{:MS}}},
+                :period {:fhir/flags #{:MS}},
+                :location {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+                :endpoint {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}},
+                :healthcareService {:type zen/vector,
+                                    :every {:fhir/flags #{:MS},
+                                            :confirms #{zen.fhir/Reference},
+                                            :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema}}}},
+                :network-reference {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.network-reference/schema},
+                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
+                                    :fhir/flags #{:MS},
+                                    :zen/desc "NetworkReference"}},
+         :zen.fhir/type "PractitionerRole"}}

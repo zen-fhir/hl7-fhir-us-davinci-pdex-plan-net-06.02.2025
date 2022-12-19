@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-service,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "practitionerrole-service",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-service",
-  :fhir/type "reference",
-  :name "service",
-  :expr
-  {:PractitionerRole
-   {:knife [["healthcareService"]],
-    :jsonpath ["$.\"healthcareService\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "practitionerrole-service",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-service",
+         :fhir/type "reference",
+         :name "service",
+         :expr {:PractitionerRole {:knife [["healthcareService"]],
+                                   :jsonpath ["$.\"healthcareService\"[*]"],
+                                   :data-types #{{:type "Reference",
+                                                  :polymorphic? false}},
+                                   :template :reference}}}}

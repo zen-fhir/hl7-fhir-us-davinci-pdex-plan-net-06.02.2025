@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-plan-type,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "insuranceplan-plan-type",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-plan-type",
-  :fhir/type "token",
-  :name "plan-type",
-  :expr
-  {:InsurancePlan
-   {:knife [["plan" "type"]],
-    :jsonpath ["$.\"plan\".\"type\"[*]"],
-    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
-    :template :token}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "insuranceplan-plan-type",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-plan-type",
+         :fhir/type "token",
+         :name "plan-type",
+         :expr {:InsurancePlan {:knife [["plan" "type"]],
+                                :jsonpath ["$.\"plan\".\"type\"[*]"],
+                                :data-types #{{:type "CodeableConcept",
+                                               :polymorphic? false}},
+                                :template :token}}}}

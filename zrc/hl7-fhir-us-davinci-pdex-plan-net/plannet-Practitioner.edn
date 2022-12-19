@@ -1,103 +1,65 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner,
- import
- #{zen.fhir
-   hl7-fhir-us-core.us-core-practitioner
-   hl7-fhir-us-davinci-pdex-plan-net.communication-proficiency
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS
-   hl7-fhir-r4-core.geolocation
-   hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
-   hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification
-   hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema
- {:zen.fhir/version "0.6.6-7",
-  :confirms
-  #{hl7-fhir-us-core.us-core-practitioner/schema zen.fhir/Resource},
-  :zen/tags #{zen.fhir/profile-schema zen/schema},
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Practitioner",
-  :require #{:active},
-  :type zen/map,
-  :zen/desc
-  "Practitioner is a person who is directly or indirectly involved in the provisioning of healthcare.",
-  :keys
-  {:address
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:geolocation
-      {:confirms #{hl7-fhir-r4-core.geolocation/schema},
-       :fhir/extensionUri
-       "http://hl7.org/fhir/StructureDefinition/geolocation",
-       :fhir/flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :meta {:type zen/map, :require #{:lastUpdated}},
-   :name
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:text #:fhir{:flags #{:MS}},
-      :given {:type zen/vector, :every #:fhir{:flags #{:MS}}}}}},
-   :active {:match true, :fhir/flags #{:MS}},
-   :communication
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:communication-proficiency
-      {:confirms
-       #{hl7-fhir-us-davinci-pdex-plan-net.communication-proficiency/schema},
-       :fhir/extensionUri
-       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/communication-proficiency",
-       :fhir/flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :identifier
-   {:type zen/vector,
-    :every {:type zen/map, :keys {:type #:fhir{:flags #{:MS}}}}},
-   :qualification
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:practitioner-qualification
-      {:confirms
-       #{hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification/schema},
-       :fhir/extensionUri
-       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/practitioner-qualification",
-       :fhir/flags #{:MS}},
-      :identifier {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-      :code
-      {:fhir/flags #{:MS},
-       :zen.fhir/value-set
-       {:symbol
-        hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
-        :strength :extensible}},
-      :period #:fhir{:flags #{:MS}},
-      :issuer
-      {:fhir/flags #{:MS},
-       :confirms #{zen.fhir/Reference},
-       :zen.fhir/reference {:refers #{}}}},
-     :fhir/flags #{:MS}}},
-   :telecom
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:contactpoint-availabletime
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime"}},
-      :via-intermediary
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-        :zen/desc "Via Intermediary"}}},
-     :fhir/flags #{:MS}}}},
-  :zen.fhir/type "Practitioner"}}
+ import #{zen.fhir
+          hl7-fhir-us-core.us-core-practitioner
+          hl7-fhir-us-davinci-pdex-plan-net.communication-proficiency
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS
+          hl7-fhir-r4-core.geolocation
+          hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
+          hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification
+          hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
+ schema {:zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-us-core.us-core-practitioner/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Practitioner",
+         :require #{:active},
+         :type zen/map,
+         :zen/desc "Practitioner is a person who is directly or indirectly involved in the provisioning of healthcare.",
+         :keys {:address {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:geolocation {:confirms #{hl7-fhir-r4-core.geolocation/schema},
+                                                       :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/geolocation",
+                                                       :fhir/flags #{:MS}}},
+                                  :fhir/flags #{:MS}}},
+                :meta {:type zen/map, :require #{:lastUpdated}},
+                :name {:type zen/vector,
+                       :every {:type zen/map,
+                               :keys {:text {:fhir/flags #{:MS}},
+                                      :given {:type zen/vector,
+                                              :every {:fhir/flags #{:MS}}}}}},
+                :active {:match true, :fhir/flags #{:MS}},
+                :communication {:type zen/vector,
+                                :every {:type zen/map,
+                                        :keys {:communication-proficiency {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.communication-proficiency/schema},
+                                                                           :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/communication-proficiency",
+                                                                           :fhir/flags #{:MS}}},
+                                        :fhir/flags #{:MS}}},
+                :identifier {:type zen/vector,
+                             :every {:type zen/map,
+                                     :keys {:type {:fhir/flags #{:MS}}}}},
+                :qualification {:type zen/vector,
+                                :every {:type zen/map,
+                                        :keys {:practitioner-qualification {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification/schema},
+                                                                            :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/practitioner-qualification",
+                                                                            :fhir/flags #{:MS}},
+                                               :identifier {:type zen/vector,
+                                                            :every {:fhir/flags #{:MS}}},
+                                               :code {:fhir/flags #{:MS},
+                                                      :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
+                                                                           :strength :extensible}},
+                                               :period {:fhir/flags #{:MS}},
+                                               :issuer {:fhir/flags #{:MS},
+                                                        :confirms #{zen.fhir/Reference},
+                                                        :zen.fhir/reference {:refers #{}}}},
+                                        :fhir/flags #{:MS}}},
+                :telecom {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:contactpoint-availabletime {:type zen/vector,
+                                                                      :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
+                                                                              :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime"}},
+                                         :via-intermediary {:type zen/vector,
+                                                            :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
+                                                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+                                                                    :zen/desc "Via Intermediary"}}},
+                                  :fhir/flags #{:MS}}}},
+         :zen.fhir/type "Practitioner"}}

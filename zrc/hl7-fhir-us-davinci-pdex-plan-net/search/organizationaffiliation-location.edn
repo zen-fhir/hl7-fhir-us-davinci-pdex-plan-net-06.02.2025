@@ -1,16 +1,12 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-location,
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-location,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "organizationaffiliation-location",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-location",
-  :fhir/type "reference",
-  :name "location",
-  :expr
-  {:OrganizationAffiliation
-   {:knife [["location"]],
-    :jsonpath ["$.\"location\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "organizationaffiliation-location",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-location",
+         :fhir/type "reference",
+         :name "location",
+         :expr {:OrganizationAffiliation {:knife [["location"]],
+                                          :jsonpath ["$.\"location\"[*]"],
+                                          :data-types #{{:type "Reference",
+                                                         :polymorphic? false}},
+                                          :template :reference}}}}

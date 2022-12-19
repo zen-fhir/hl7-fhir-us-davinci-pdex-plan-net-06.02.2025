@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.location-endpoint,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "location-endpoint",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-endpoint",
-  :fhir/type "reference",
-  :name "endpoint",
-  :expr
-  {:Location
-   {:knife [["endpoint"]],
-    :jsonpath ["$.\"endpoint\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "location-endpoint",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-endpoint",
+         :fhir/type "reference",
+         :name "endpoint",
+         :expr {:Location {:knife [["endpoint"]],
+                           :jsonpath ["$.\"endpoint\"[*]"],
+                           :data-types #{{:type "Reference",
+                                          :polymorphic? false}},
+                           :template :reference}}}}

@@ -1,19 +1,14 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointUsecaseVS,
  import #{zen.fhir},
- value-set
- {:zen/tags #{zen.fhir/value-set},
-  :zen/desc
-  "Codes for documenting business use case by a general grouping by business area.",
-  :zen.fhir/version "0.6.6-7",
-  :fhir/code-systems
-  #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-     :zen.fhir/content :bundled}},
-  :uri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointUsecaseVS",
-  :version "1.1.0",
-  :ftr
-  {:module "ig",
-   :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
-   :source-type :igs,
-   :ftr-path "ftr",
-   :tag "init"}}}
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "Codes for documenting business use case by a general grouping by business area.",
+            :zen.fhir/version "0.6.6-8",
+            :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointUsecaseVS",
+            :version "1.1.0",
+            :ftr {:module "ig",
+                  :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
+                  :source-type :igs,
+                  :ftr-path "ftr",
+                  :tag "init"}}}

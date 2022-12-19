@@ -1,18 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.accessibility,
- import
- #{zen.fhir
-   hl7-fhir-r4-core.CodeableConcept
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS},
- schema
- {:zen/tags #{zen/schema zen.fhir/structure-schema},
-  :zen/desc
-  "An extension to describe accessibility options offered by a practitioner or at a location.",
-  :zen.fhir/type "CodeableConcept",
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility",
-  :zen.fhir/version "0.6.6-7",
-  :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-  :zen.fhir/value-set
-  {:symbol
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS/value-set,
-   :strength :extensible}}}
+ import #{zen.fhir
+          hl7-fhir-r4-core.CodeableConcept
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS},
+ schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen/desc "An extension to describe accessibility options offered by a practitioner or at a location.",
+         :zen.fhir/type "CodeableConcept",
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility",
+         :zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+         :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS/value-set,
+                              :strength :extensible}}}

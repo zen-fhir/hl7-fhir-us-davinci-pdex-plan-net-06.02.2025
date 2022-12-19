@@ -1,155 +1,98 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService,
- import
- #{hl7-fhir-r4-core.HealthcareService
-   zen.fhir
-   hl7-fhir-us-davinci-pdex-plan-net.newpatients
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceCategoryVS
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
-   hl7-fhir-us-davinci-pdex-plan-net.delivery-method
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
-   hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
-   hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema
- {:zen.fhir/version "0.6.6-7",
-  :confirms
-  #{hl7-fhir-r4-core.HealthcareService/schema zen.fhir/Resource},
-  :zen/tags #{zen.fhir/profile-schema zen/schema},
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-HealthcareService",
-  :require #{:category :active},
-  :type zen/map,
-  :zen/desc
-  "The HealthCareService resource typically describes services offered by an organization/practitioner at a location. The resource may be used to encompass a variety of services covering the entire healthcare spectrum, including promotion, prevention, diagnostics, pharmacy, hospital and ambulatory care, home care, long-term care, and other health-related and community services.",
-  :keys
-  {:coverageArea
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
-   :category
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceCategoryVS/value-set,
-      :strength :extensible}},
-    :minItems 1,
-    :maxItems 1},
-   :availableTime
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:daysOfWeek {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-      :allDay #:fhir{:flags #{:MS}},
-      :availableStartTime #:fhir{:flags #{:MS}},
-      :availableEndTime #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :meta {:type zen/map, :require #{:lastUpdated}},
-   :specialty
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS/value-set,
-      :strength :required}}},
-   :name #:fhir{:flags #{:MS}},
-   :notAvailable
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:description #:fhir{:flags #{:MS}},
-      :during #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :newpatients
-   {:type zen/vector,
-    :every
-    {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
-     :fhir/flags #{:MS},
-     :zen/desc "New Patients"}},
-   :providedBy
-   {:fhir/flags #{:MS},
-    :confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
-   :type
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS/value-set,
-      :strength :extensible}}},
-   :deliverymethod
-   {:type zen/vector,
-    :every
-    {:confirms
-     #{hl7-fhir-us-davinci-pdex-plan-net.delivery-method/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/delivery-method",
-     :fhir/flags #{:MS},
-     :zen/desc "Delivery Method"}},
-   :active {:match true, :fhir/flags #{:MS}},
-   :comment #:fhir{:flags #{:MS}},
-   :identifier
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:type #:fhir{:flags #{:MS}}, :value #:fhir{:flags #{:MS}}}}},
-   :availabilityExceptions #:fhir{:flags #{:MS}},
-   :appointmentRequired #:fhir{:flags #{:MS}},
-   :telecom
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:contactpoint-availabletime
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
-        :fhir/flags #{:MS}}},
-      :via-intermediary
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-        :fhir/flags #{:MS},
-        :zen/desc "Via Intermediary"}},
-      :system #:fhir{:flags #{:MS}},
-      :value #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}},
-   :location
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
-   :endpoint
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference
-     {:refers
-      #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}}},
-  :zen.fhir/type "HealthcareService"}}
+ import #{hl7-fhir-r4-core.HealthcareService
+          zen.fhir
+          hl7-fhir-us-davinci-pdex-plan-net.newpatients
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Location
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceCategoryVS
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+          hl7-fhir-us-davinci-pdex-plan-net.delivery-method
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
+          hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
+          hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
+ schema {:zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-r4-core.HealthcareService/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-HealthcareService",
+         :require #{:category :active},
+         :type zen/map,
+         :zen/desc "The HealthCareService resource typically describes services offered by an organization/practitioner at a location. The resource may be used to encompass a variety of services covering the entire healthcare spectrum, including promotion, prevention, diagnostics, pharmacy, hospital and ambulatory care, home care, long-term care, and other health-related and community services.",
+         :keys {:coverageArea {:type zen/vector,
+                               :every {:fhir/flags #{:MS},
+                                       :confirms #{zen.fhir/Reference},
+                                       :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+                :category {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceCategoryVS/value-set,
+                                                        :strength :extensible}},
+                           :minItems 1,
+                           :maxItems 1},
+                :availableTime {:type zen/vector,
+                                :every {:type zen/map,
+                                        :keys {:daysOfWeek {:type zen/vector,
+                                                            :every {:fhir/flags #{:MS}}},
+                                               :allDay {:fhir/flags #{:MS}},
+                                               :availableStartTime {:fhir/flags #{:MS}},
+                                               :availableEndTime {:fhir/flags #{:MS}}},
+                                        :fhir/flags #{:MS}}},
+                :meta {:type zen/map, :require #{:lastUpdated}},
+                :specialty {:type zen/vector,
+                            :every {:fhir/flags #{:MS},
+                                    :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS/value-set,
+                                                         :strength :required}}},
+                :name {:fhir/flags #{:MS}},
+                :notAvailable {:type zen/vector,
+                               :every {:type zen/map,
+                                       :keys {:description {:fhir/flags #{:MS}},
+                                              :during {:fhir/flags #{:MS}}},
+                                       :fhir/flags #{:MS}}},
+                :newpatients {:type zen/vector,
+                              :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema},
+                                      :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
+                                      :fhir/flags #{:MS},
+                                      :zen/desc "New Patients"}},
+                :providedBy {:fhir/flags #{:MS},
+                             :confirms #{zen.fhir/Reference},
+                             :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+                :type {:type zen/vector,
+                       :every {:fhir/flags #{:MS},
+                               :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS/value-set,
+                                                    :strength :extensible}}},
+                :deliverymethod {:type zen/vector,
+                                 :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.delivery-method/schema},
+                                         :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/delivery-method",
+                                         :fhir/flags #{:MS},
+                                         :zen/desc "Delivery Method"}},
+                :active {:match true, :fhir/flags #{:MS}},
+                :comment {:fhir/flags #{:MS}},
+                :identifier {:type zen/vector,
+                             :every {:type zen/map,
+                                     :keys {:type {:fhir/flags #{:MS}},
+                                            :value {:fhir/flags #{:MS}}}}},
+                :availabilityExceptions {:fhir/flags #{:MS}},
+                :appointmentRequired {:fhir/flags #{:MS}},
+                :telecom {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:contactpoint-availabletime {:type zen/vector,
+                                                                      :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
+                                                                              :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
+                                                                              :fhir/flags #{:MS}}},
+                                         :via-intermediary {:type zen/vector,
+                                                            :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
+                                                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+                                                                    :fhir/flags #{:MS},
+                                                                    :zen/desc "Via Intermediary"}},
+                                         :system {:fhir/flags #{:MS}},
+                                         :value {:fhir/flags #{:MS}}},
+                                  :fhir/flags #{:MS}}},
+                :location {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}},
+                :endpoint {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema}}}}},
+         :zen.fhir/type "HealthcareService"}}

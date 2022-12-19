@@ -1,16 +1,12 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-service-category,
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-service-category,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "healthcareservice-service-category",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-service-category",
-  :fhir/type "token",
-  :name "service-category",
-  :expr
-  {:HealthcareService
-   {:knife [["category"]],
-    :jsonpath ["$.\"category\"[*]"],
-    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
-    :template :token}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "healthcareservice-service-category",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-service-category",
+         :fhir/type "token",
+         :name "service-category",
+         :expr {:HealthcareService {:knife [["category"]],
+                                    :jsonpath ["$.\"category\"[*]"],
+                                    :data-types #{{:type "CodeableConcept",
+                                                   :polymorphic? false}},
+                                    :template :token}}}}

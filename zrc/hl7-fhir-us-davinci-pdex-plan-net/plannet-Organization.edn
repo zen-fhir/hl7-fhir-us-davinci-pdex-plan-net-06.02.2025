@@ -1,134 +1,83 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization,
- import
- #{zen.fhir
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.OrgTypeVS
-   hl7-fhir-us-davinci-pdex-plan-net.org-description
-   hl7-fhir-us-core.us-core-organization
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
-   hl7-fhir-us-davinci-pdex-plan-net.qualification
-   hl7-fhir-r4-core.geolocation
-   hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
-   hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema
- {:zen.fhir/version "0.6.6-7",
-  :confirms
-  #{hl7-fhir-us-core.us-core-organization/schema zen.fhir/Resource},
-  :zen/tags #{zen.fhir/profile-schema zen/schema},
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Organization",
-  :require #{:address :type},
-  :type zen/map,
-  :zen/desc
-  "An organization is a formal or informal grouping of people or organizations with a common purpose, such as a company, institution, corporation, community group, or healthcare practice.\nGuidance:   When the contact is a department name, rather than a human (e.g., patient help line), include a blank family and given name, and provide the department name in contact.name.text",
-  :keys
-  {:address
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:geolocation
-      {:confirms #{hl7-fhir-r4-core.geolocation/schema},
-       :fhir/extensionUri
-       "http://hl7.org/fhir/StructureDefinition/geolocation",
-       :fhir/flags #{:MS}},
-      :type #:fhir{:flags #{:MS}},
-      :text #:fhir{:flags #{:MS}}}},
-    :minItems 1},
-   :meta {:type zen/map, :require #{:lastUpdated}},
-   :type
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.OrgTypeVS/value-set,
-      :strength :extensible}},
-    :minItems 1},
-   :active {:match true},
-   :identifier
-   {:type zen/vector,
-    :every {:type zen/map, :keys {:type #:fhir{:flags #{:MS}}}}},
-   :qualification
-   {:type zen/vector,
-    :every
-    {:confirms
-     #{hl7-fhir-us-davinci-pdex-plan-net.qualification/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
-     :fhir/flags #{:MS},
-     :zen/desc "Qualification"}},
-   :telecom
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:contactpoint-availabletime
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
-        :fhir/flags #{:MS}}},
-      :via-intermediary
-      {:type zen/vector,
-       :every
-       {:confirms
-        #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
-        :fhir/extensionUri
-        "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-        :fhir/flags #{:MS},
-        :zen/desc "Via Intermediary"}},
-      :system #:fhir{:flags #{:MS}},
-      :value #:fhir{:flags #{:MS}},
-      :rank #:fhir{:flags #{:MS}}}}},
-   :partOf
-   {:fhir/flags #{:MS},
-    :confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
-   :endpoint
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :confirms #{zen.fhir/Reference},
-     :zen.fhir/reference {:refers #{}}}},
-   :contact
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:telecom
-      {:type zen/vector,
-       :every
-       {:type zen/map,
-        :keys
-        {:contactpoint-availabletime
-         {:type zen/vector,
-          :every
-          {:confirms
-           #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
-           :fhir/extensionUri
-           "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime"}},
-         :via-intermediary
-         {:type zen/vector,
-          :every
-          {:confirms
-           #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
-           :fhir/extensionUri
-           "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-           :zen/desc "Via Intermediary"}},
-         :system #:fhir{:flags #{:MS}},
-         :value #:fhir{:flags #{:MS}},
-         :use #:fhir{:flags #{:MS}}},
-        :fhir/flags #{:MS}}}},
-     :fhir/flags #{:MS}}},
-   :org-description
-   {:confirms
-    #{hl7-fhir-us-davinci-pdex-plan-net.org-description/schema},
-    :fhir/extensionUri
-    "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/org-description",
-    :fhir/flags #{:MS},
-    :zen/desc "Organization Description"}},
-  :zen.fhir/type "Organization"}}
+ import #{zen.fhir
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.OrgTypeVS
+          hl7-fhir-us-davinci-pdex-plan-net.org-description
+          hl7-fhir-us-core.us-core-organization
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
+          hl7-fhir-us-davinci-pdex-plan-net.qualification
+          hl7-fhir-r4-core.geolocation
+          hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
+          hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
+ schema {:zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-us-core.us-core-organization/schema
+                     zen.fhir/Resource},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Organization",
+         :require #{:address :type},
+         :type zen/map,
+         :zen/desc "An organization is a formal or informal grouping of people or organizations with a common purpose, such as a company, institution, corporation, community group, or healthcare practice.\nGuidance:   When the contact is a department name, rather than a human (e.g., patient help line), include a blank family and given name, and provide the department name in contact.name.text",
+         :keys {:address {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:geolocation {:confirms #{hl7-fhir-r4-core.geolocation/schema},
+                                                       :fhir/extensionUri "http://hl7.org/fhir/StructureDefinition/geolocation",
+                                                       :fhir/flags #{:MS}},
+                                         :type {:fhir/flags #{:MS}},
+                                         :text {:fhir/flags #{:MS}}}},
+                          :minItems 1},
+                :meta {:type zen/map, :require #{:lastUpdated}},
+                :type {:type zen/vector,
+                       :every {:fhir/flags #{:MS},
+                               :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.OrgTypeVS/value-set,
+                                                    :strength :extensible}},
+                       :minItems 1},
+                :active {:match true},
+                :identifier {:type zen/vector,
+                             :every {:type zen/map,
+                                     :keys {:type {:fhir/flags #{:MS}}}}},
+                :qualification {:type zen/vector,
+                                :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.qualification/schema},
+                                        :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
+                                        :fhir/flags #{:MS},
+                                        :zen/desc "Qualification"}},
+                :telecom {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:contactpoint-availabletime {:type zen/vector,
+                                                                      :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
+                                                                              :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
+                                                                              :fhir/flags #{:MS}}},
+                                         :via-intermediary {:type zen/vector,
+                                                            :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
+                                                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+                                                                    :fhir/flags #{:MS},
+                                                                    :zen/desc "Via Intermediary"}},
+                                         :system {:fhir/flags #{:MS}},
+                                         :value {:fhir/flags #{:MS}},
+                                         :rank {:fhir/flags #{:MS}}}}},
+                :partOf {:fhir/flags #{:MS},
+                         :confirms #{zen.fhir/Reference},
+                         :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+                :endpoint {:type zen/vector,
+                           :every {:fhir/flags #{:MS},
+                                   :confirms #{zen.fhir/Reference},
+                                   :zen.fhir/reference {:refers #{}}}},
+                :contact {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:telecom {:type zen/vector,
+                                                   :every {:type zen/map,
+                                                           :keys {:contactpoint-availabletime {:type zen/vector,
+                                                                                               :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema},
+                                                                                                       :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime"}},
+                                                                  :via-intermediary {:type zen/vector,
+                                                                                     :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema},
+                                                                                             :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
+                                                                                             :zen/desc "Via Intermediary"}},
+                                                                  :system {:fhir/flags #{:MS}},
+                                                                  :value {:fhir/flags #{:MS}},
+                                                                  :use {:fhir/flags #{:MS}}},
+                                                           :fhir/flags #{:MS}}}},
+                                  :fhir/flags #{:MS}}},
+                :org-description {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.org-description/schema},
+                                  :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/org-description",
+                                  :fhir/flags #{:MS},
+                                  :zen/desc "Organization Description"}},
+         :zen.fhir/type "Organization"}}

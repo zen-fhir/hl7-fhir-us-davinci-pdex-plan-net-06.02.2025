@@ -1,16 +1,12 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-administered-by,
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-administered-by,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "insuranceplan-administered-by",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-administered-by",
-  :fhir/type "reference",
-  :name "administered-by",
-  :expr
-  {:InsurancePlan
-   {:knife [["administeredBy"]],
-    :jsonpath ["$.\"administeredBy\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "insuranceplan-administered-by",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-administered-by",
+         :fhir/type "reference",
+         :name "administered-by",
+         :expr {:InsurancePlan {:knife [["administeredBy"]],
+                                :jsonpath ["$.\"administeredBy\"[*]"],
+                                :data-types #{{:type "Reference",
+                                               :polymorphic? false}},
+                                :template :reference}}}}

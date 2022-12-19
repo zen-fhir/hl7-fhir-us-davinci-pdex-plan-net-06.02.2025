@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.organization-type,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "organization-type",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-type",
-  :fhir/type "token",
-  :name "type",
-  :expr
-  {:Organization
-   {:knife [["type"]],
-    :jsonpath ["$.\"type\"[*]"],
-    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
-    :template :token}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "organization-type",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-type",
+         :fhir/type "token",
+         :name "type",
+         :expr {:Organization {:knife [["type"]],
+                               :jsonpath ["$.\"type\"[*]"],
+                               :data-types #{{:type "CodeableConcept",
+                                              :polymorphic? false}},
+                               :template :token}}}}

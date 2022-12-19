@@ -1,13 +1,11 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.search.organization-coverage-area,
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.organization-coverage-area,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "organization-coverage-area",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-coverage-area",
-  :fhir/type "reference",
-  :name "coverage-area",
-  :expr
-  {:Organization
-   {:knife [], :jsonpath [], :data-types #{}, :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "organization-coverage-area",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-coverage-area",
+         :fhir/type "reference",
+         :name "coverage-area",
+         :expr {:Organization {:knife [],
+                               :jsonpath [],
+                               :data-types #{},
+                               :template :reference}}}}

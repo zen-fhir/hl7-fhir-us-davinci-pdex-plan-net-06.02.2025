@@ -1,275 +1,109 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net,
  import #{zen.fhir hl7-fhir-us-core hl7-fhir-r4-core},
- extensions
- {:zen/tags #{zen.fhir/extensions},
-  :schemas
-  {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.qualification/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/delivery-method"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.delivery-method/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/practitioner-qualification"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/endpoint-usecase"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema}},
- ig
- {:zen/tags #{zen.fhir/ig},
-  :profiles profiles,
-  :extensions extensions,
-  :structures structures,
-  :value-sets value-sets,
-  :searches searches},
- profiles
- {:zen/tags #{zen.fhir/profiles},
-  :schemas
-  {"Organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema,
-    "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Network"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema},
-   "Practitioner"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Practitioner"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner/schema},
-   "InsurancePlan"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-InsurancePlan"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-InsurancePlan/schema},
-   "PractitionerRole"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-PractitionerRole"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-PractitionerRole/schema},
-   "HealthcareService"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-HealthcareService"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema},
-   "Location"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Location"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema},
-   "Endpoint"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema},
-   "OrganizationAffiliation"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-OrganizationAffiliation"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-OrganizationAffiliation/schema}}},
- searches
- {:zen/tags #{zen.fhir/searches},
-  :searches
-  {"Plannet_sp_organizationaffiliation_location"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-location"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-location/search},
-   "Plannet_sp_insuranceplan_administered_by"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-administered-by"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-administered-by/search},
-   "Plannet_sp_organization_name"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-name"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-name/search},
-   "Plannet_sp_practitionerrole_endpoint"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-endpoint"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-endpoint/search},
-   "Plannet_sp_insuranceplan_plan_type"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-plan-type"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-plan-type/search},
-   "Plannet_sp_insuranceplan_type"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-type"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-type/search},
-   "Plannet_sp_location_address_state"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address-state"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address-state/search},
-   "Plannet_sp_insuranceplan_coverage_area"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-coverage-area"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-coverage-area/search},
-   "Plannet_sp_organizationaffiliation_specialty"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-specialty"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-specialty/search},
-   "Plannet_sp_organizationaffiliation_service"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-service"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-service/search},
-   "Plannet_sp_location_type"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-type"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-type/search},
-   "Plannet_sp_practitioner_given_name"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-given-name"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-given-name/search},
-   "Plannet_sp_network_coverage_area"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-coverage-area"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-coverage-area/search},
-   "Plannet_sp_practitionerrole_service"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-service"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-service/search},
-   "Plannet_sp_organizationaffiliation_endpoint"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-endpoint"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-endpoint/search},
-   "Plannet_sp_organizationaffiliation_primary_organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-primary-organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-primary-organization/search},
-   "Plannet_sp_organizationaffiliation_period"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-period"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-period/search},
-   "Plannet_sp_healthcareservice_name"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-name"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-name/search},
-   "Plannet_sp_organizationaffiliation_participating_organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-participating-organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-participating-organization/search},
-   "Plannet_sp_organizationaffiliation_network"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-network"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-network/search},
-   "Plannet_sp_location_organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-organization/search},
-   "Plannet_sp_practitioner_family_name"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-family-name"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-family-name/search},
-   "Plannet_sp_healthcareservice_category"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-service-category"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-service-category/search},
-   "Plannet_sp_organization_endpoint"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-endpoint"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-endpoint/search},
-   "Plannet_sp_endpoint_organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/endpoint-organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.endpoint-organization/search},
-   "Plannet_sp_practitionerrole_network"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-network"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-network/search},
-   "Plannet_sp_practitioner_name"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-name"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-name/search},
-   "Plannet_sp_insuranceplan_owned_by"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-owned-by"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-owned-by/search},
-   "Plannet_sp_practitionerrole_specialty"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-specialty"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-specialty/search},
-   "Plannet_sp_location_endpoint"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-endpoint"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-endpoint/search},
-   "Plannet_sp_healthcareservice_endpoint"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-endpoint"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-endpoint/search},
-   "Plannet_sp_healthcareservice_coverage_area"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-coverage-area"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-coverage-area/search},
-   "Plannet_sp_healthcareservice_type"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-service-type"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-service-type/search},
-   "Plannet_sp_practitionerrole_period"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-period"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-period/search},
-   "Plannet_sp_healthcareservice_organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-organization/search},
-   "Plannet_sp_location_partof"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-partof"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-partof/search},
-   "Plannet_sp_practitionerrole_location"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-location"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-location/search},
-   "Plannet_sp_insuranceplan_identifier"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-identifier"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-identifier/search},
-   "Plannet_sp_location_address"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address/search},
-   "Plannet_sp_practitionerrole_organization"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-organization"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-organization/search},
-   "Plannet_sp_healthcareservice_location"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-location"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-location/search},
-   "Plannet_sp_organization_type"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-type"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-type/search},
-   "Plannet_sp_insuranceplan_name"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-name"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-name/search},
-   "Plannet_sp_organization_partof"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-partof"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-partof/search},
-   "Plannet_sp_practitionerrole_practitioner"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-practitioner"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-practitioner/search},
-   "Plannet_sp_location_address_city"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address-city"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address-city/search},
-   "Plannet_sp_organizationaffiliation_role"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-role"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-role/search},
-   "Plannet_sp_healthcareservice_specialty"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-specialty"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-specialty/search},
-   "Plannet_sp_practitionerrole_role"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-role"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-role/search},
-   "Plannet_sp_organization_address"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-address"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-address/search},
-   "Plannet_sp_location_address_postalcode"
-   {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address-postalcode"
-    #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address-postalcode/search}}},
- structures
- {:zen/tags #{zen.fhir/structures},
-  :schemas
-  {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.accessibility/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/communication-proficiency"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.communication-proficiency/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/org-description"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.org-description/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.network-reference/schema,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.location-reference/schema}},
- value-sets
- {:zen/tags #{zen.fhir/value-sets},
-  :value-sets
-  {"http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointUsecaseVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointUsecaseVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/NetworkTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.NetworkTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/AccessibilityVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/VirtualModalitiesVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.VirtualModalitiesVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/InsuranceProductTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.InsuranceProductTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointPayloadTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/IndividualAndGroupSpecialtiesVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/SpecialtiesVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/SpecialtyAndDegreeLicenseCertificateVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtyAndDegreeLicenseCertificateVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/NonIndividualSpecialtyAndDegreeLicenseCertificateVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.NonIndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/NonIndividualSpecialtiesVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.NonIndividualSpecialtiesVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointConnectionTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/OrganizationAffiliationRoleVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.OrganizationAffiliationRoleVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/InsurancePlanTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.InsurancePlanTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/LanguageProficiencyVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.LanguageProficiencyVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/PractitionerRoleVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/QualificationStatusVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.QualificationStatusVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/DeliveryMethodVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.DeliveryMethodVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/IndividualSpecialtyAndDegreeLicenseCertificateVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/AcceptingPatientsVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/OrgTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.OrgTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/HealthcareServiceTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/HealthcareServiceCategoryVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceCategoryVS/value-set,
-   "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/MinEndpointConnectionTypeVS"
-   #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.MinEndpointConnectionTypeVS/value-set}}}
+ extensions {:zen/tags #{zen.fhir/extensions},
+             :schemas {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.qualification/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/delivery-method" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.delivery-method/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/practitioner-qualification" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/endpoint-usecase" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.newpatients/schema}},
+ ig {:zen/tags #{zen.fhir/ig},
+     :profiles profiles,
+     :extensions extensions,
+     :structures structures,
+     :value-sets value-sets,
+     :searches searches},
+ profiles {:zen/tags #{zen.fhir/profiles},
+           :schemas {"Organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema,
+                                     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Network" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema},
+                     "Practitioner" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Practitioner" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Practitioner/schema},
+                     "InsurancePlan" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-InsurancePlan" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-InsurancePlan/schema},
+                     "PractitionerRole" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-PractitionerRole" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-PractitionerRole/schema},
+                     "HealthcareService" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-HealthcareService" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema},
+                     "Location" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Location" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema},
+                     "Endpoint" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint/schema},
+                     "OrganizationAffiliation" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-OrganizationAffiliation" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.plannet-OrganizationAffiliation/schema}}},
+ searches {:zen/tags #{zen.fhir/searches},
+           :searches {"Plannet_sp_organizationaffiliation_location" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-location" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-location/search},
+                      "Plannet_sp_insuranceplan_administered_by" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-administered-by" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-administered-by/search},
+                      "Plannet_sp_organization_name" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-name" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-name/search},
+                      "Plannet_sp_practitionerrole_endpoint" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-endpoint" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-endpoint/search},
+                      "Plannet_sp_insuranceplan_plan_type" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-plan-type" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-plan-type/search},
+                      "Plannet_sp_insuranceplan_type" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-type" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-type/search},
+                      "Plannet_sp_location_address_state" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address-state" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address-state/search},
+                      "Plannet_sp_insuranceplan_coverage_area" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-coverage-area" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-coverage-area/search},
+                      "Plannet_sp_organizationaffiliation_specialty" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-specialty" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-specialty/search},
+                      "Plannet_sp_organizationaffiliation_service" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-service" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-service/search},
+                      "Plannet_sp_location_type" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-type" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-type/search},
+                      "Plannet_sp_practitioner_given_name" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-given-name" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-given-name/search},
+                      "Plannet_sp_network_coverage_area" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-coverage-area" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-coverage-area/search},
+                      "Plannet_sp_practitionerrole_service" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-service" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-service/search},
+                      "Plannet_sp_organizationaffiliation_endpoint" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-endpoint" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-endpoint/search},
+                      "Plannet_sp_organizationaffiliation_primary_organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-primary-organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-primary-organization/search},
+                      "Plannet_sp_organizationaffiliation_period" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-period" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-period/search},
+                      "Plannet_sp_healthcareservice_name" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-name" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-name/search},
+                      "Plannet_sp_organizationaffiliation_participating_organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-participating-organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-participating-organization/search},
+                      "Plannet_sp_organizationaffiliation_network" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-network" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-network/search},
+                      "Plannet_sp_location_organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-organization/search},
+                      "Plannet_sp_practitioner_family_name" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-family-name" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-family-name/search},
+                      "Plannet_sp_healthcareservice_category" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-service-category" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-service-category/search},
+                      "Plannet_sp_organization_endpoint" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-endpoint" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-endpoint/search},
+                      "Plannet_sp_endpoint_organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/endpoint-organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.endpoint-organization/search},
+                      "Plannet_sp_practitionerrole_network" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-network" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-network/search},
+                      "Plannet_sp_practitioner_name" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitioner-name" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitioner-name/search},
+                      "Plannet_sp_insuranceplan_owned_by" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-owned-by" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-owned-by/search},
+                      "Plannet_sp_practitionerrole_specialty" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-specialty" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-specialty/search},
+                      "Plannet_sp_location_endpoint" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-endpoint" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-endpoint/search},
+                      "Plannet_sp_healthcareservice_endpoint" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-endpoint" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-endpoint/search},
+                      "Plannet_sp_healthcareservice_coverage_area" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-coverage-area" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-coverage-area/search},
+                      "Plannet_sp_healthcareservice_type" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-service-type" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-service-type/search},
+                      "Plannet_sp_practitionerrole_period" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-period" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-period/search},
+                      "Plannet_sp_healthcareservice_organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-organization/search},
+                      "Plannet_sp_location_partof" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-partof" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-partof/search},
+                      "Plannet_sp_practitionerrole_location" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-location" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-location/search},
+                      "Plannet_sp_insuranceplan_identifier" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-identifier" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-identifier/search},
+                      "Plannet_sp_location_address" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address/search},
+                      "Plannet_sp_practitionerrole_organization" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-organization" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-organization/search},
+                      "Plannet_sp_healthcareservice_location" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-location" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-location/search},
+                      "Plannet_sp_organization_type" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-type" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-type/search},
+                      "Plannet_sp_insuranceplan_name" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-name" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-name/search},
+                      "Plannet_sp_organization_partof" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-partof" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-partof/search},
+                      "Plannet_sp_practitionerrole_practitioner" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-practitioner" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-practitioner/search},
+                      "Plannet_sp_location_address_city" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address-city" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address-city/search},
+                      "Plannet_sp_organizationaffiliation_role" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organizationaffiliation-role" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organizationaffiliation-role/search},
+                      "Plannet_sp_healthcareservice_specialty" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/healthcareservice-specialty" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.healthcareservice-specialty/search},
+                      "Plannet_sp_practitionerrole_role" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-role" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-role/search},
+                      "Plannet_sp_organization_address" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-address" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.organization-address/search},
+                      "Plannet_sp_location_address_postalcode" {"http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-address-postalcode" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.search.location-address-postalcode/search}}},
+ structures {:zen/tags #{zen.fhir/structures},
+             :schemas {"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.accessibility/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/communication-proficiency" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.communication-proficiency/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/org-description" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.org-description/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.via-intermediary/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.network-reference/schema,
+                       "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.location-reference/schema}},
+ value-sets {:zen/tags #{zen.fhir/value-sets},
+             :value-sets {"http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointUsecaseVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointUsecaseVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/NetworkTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.NetworkTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/AccessibilityVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/VirtualModalitiesVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.VirtualModalitiesVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/InsuranceProductTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.InsuranceProductTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointPayloadTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/IndividualAndGroupSpecialtiesVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualAndGroupSpecialtiesVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/SpecialtiesVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtiesVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/SpecialtyAndDegreeLicenseCertificateVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtyAndDegreeLicenseCertificateVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/NonIndividualSpecialtyAndDegreeLicenseCertificateVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.NonIndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/NonIndividualSpecialtiesVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.NonIndividualSpecialtiesVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/EndpointConnectionTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/OrganizationAffiliationRoleVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.OrganizationAffiliationRoleVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/InsurancePlanTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.InsurancePlanTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/LanguageProficiencyVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.LanguageProficiencyVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/PractitionerRoleVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.PractitionerRoleVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/QualificationStatusVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.QualificationStatusVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/DeliveryMethodVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.DeliveryMethodVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/IndividualSpecialtyAndDegreeLicenseCertificateVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.IndividualSpecialtyAndDegreeLicenseCertificateVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/AcceptingPatientsVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/OrgTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.OrgTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/HealthcareServiceTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/HealthcareServiceCategoryVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceCategoryVS/value-set,
+                          "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/MinEndpointConnectionTypeVS" #zen/quote hl7-fhir-us-davinci-pdex-plan-net.value-set.MinEndpointConnectionTypeVS/value-set}}}

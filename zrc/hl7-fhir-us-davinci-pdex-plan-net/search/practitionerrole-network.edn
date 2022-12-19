@@ -1,12 +1,11 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.practitionerrole-network,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "practitionerrole-network",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-network",
-  :fhir/type "reference",
-  :name "network",
-  :expr
-  {:PractitionerRole
-   {:knife [], :jsonpath [], :data-types #{}, :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "practitionerrole-network",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-network",
+         :fhir/type "reference",
+         :name "network",
+         :expr {:PractitionerRole {:knife [],
+                                   :jsonpath [],
+                                   :data-types #{},
+                                   :template :reference}}}}

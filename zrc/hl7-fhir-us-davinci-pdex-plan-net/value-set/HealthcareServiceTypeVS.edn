@@ -1,19 +1,14 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS,
+{ns hl7-fhir-us-davinci-pdex-plan-net.value-set.HealthcareServiceTypeVS,
  import #{zen.fhir},
- value-set
- {:zen/tags #{zen.fhir/value-set},
-  :zen/desc "Valueset for HealthCareService type",
-  :zen.fhir/version "0.6.6-7",
-  :fhir/code-systems
-  #{{:fhir/url "http://terminology.hl7.org/CodeSystem/service-type",
-     :zen.fhir/content :bundled}},
-  :uri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/HealthcareServiceTypeVS",
-  :version "1.1.0",
-  :ftr
-  {:module "ig",
-   :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
-   :source-type :igs,
-   :ftr-path "ftr",
-   :tag "init"}}}
+ value-set {:zen/tags #{zen.fhir/value-set},
+            :zen/desc "Valueset for HealthCareService type",
+            :zen.fhir/version "0.6.6-8",
+            :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/service-type",
+                                  :zen.fhir/content :bundled}},
+            :uri "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/HealthcareServiceTypeVS",
+            :version "1.1.0",
+            :ftr {:module "ig",
+                  :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
+                  :source-type :igs,
+                  :ftr-path "ftr",
+                  :tag "init"}}}

@@ -1,16 +1,12 @@
-{ns
- hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-coverage-area,
+{ns hl7-fhir-us-davinci-pdex-plan-net.search.insuranceplan-coverage-area,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "insuranceplan-coverage-area",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-coverage-area",
-  :fhir/type "reference",
-  :name "coverage-area",
-  :expr
-  {:InsurancePlan
-   {:knife [["coverageArea"]],
-    :jsonpath ["$.\"coverageArea\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "insuranceplan-coverage-area",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/insuranceplan-coverage-area",
+         :fhir/type "reference",
+         :name "coverage-area",
+         :expr {:InsurancePlan {:knife [["coverageArea"]],
+                                :jsonpath ["$.\"coverageArea\"[*]"],
+                                :data-types #{{:type "Reference",
+                                               :polymorphic? false}},
+                                :template :reference}}}}

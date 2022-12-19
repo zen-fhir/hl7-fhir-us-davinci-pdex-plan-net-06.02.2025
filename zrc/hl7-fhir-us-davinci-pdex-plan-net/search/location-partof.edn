@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.location-partof,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "location-partof",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-partof",
-  :fhir/type "reference",
-  :name "partof",
-  :expr
-  {:Location
-   {:knife [["partOf"]],
-    :jsonpath ["$.\"partOf\"[*]"],
-    :data-types #{{:type "Reference", :polymorphic? false}},
-    :template :reference}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "location-partof",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-partof",
+         :fhir/type "reference",
+         :name "partof",
+         :expr {:Location {:knife [["partOf"]],
+                           :jsonpath ["$.\"partOf\"[*]"],
+                           :data-types #{{:type "Reference",
+                                          :polymorphic? false}},
+                           :template :reference}}}}

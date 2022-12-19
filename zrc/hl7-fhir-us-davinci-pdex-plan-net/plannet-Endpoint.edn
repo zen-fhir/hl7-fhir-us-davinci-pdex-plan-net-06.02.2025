@@ -1,61 +1,42 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint,
- import
- #{zen.fhir
-   hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase
-   hl7-fhir-r4-core.Endpoint
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization},
- schema
- {:zen/tags #{zen.fhir/profile-schema zen/schema},
-  :zen/desc
-  "The technical details of an endpoint that can be used for electronic services, such as a portal or FHIR REST services, messaging or operations, or DIRECT messaging.",
-  :zen.fhir/type "Endpoint",
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint",
-  :zen.fhir/version "0.6.6-7",
-  :confirms #{hl7-fhir-r4-core.Endpoint/schema zen.fhir/Resource},
-  :type zen/map,
-  :keys
-  {:connectionType
-   {:fhir/flags #{:MS},
-    :zen.fhir/value-set
-    {:symbol
-     hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS/value-set,
-     :strength :extensible}},
-   :address #:fhir{:flags #{:MS}},
-   :meta {:type zen/map, :require #{:lastUpdated}},
-   :managingOrganization
-   {:fhir/flags #{:MS},
-    :confirms #{zen.fhir/Reference},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
-   :name #:fhir{:flags #{:MS}},
-   :payloadMimeType {:type zen/vector, :every #:fhir{:flags #{:MS}}},
-   :payloadType
-   {:type zen/vector,
-    :every
-    {:fhir/flags #{:MS},
-     :zen.fhir/value-set
-     {:symbol
-      hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS/value-set,
-      :strength :extensible}},
-    :maxItems 1},
-   :status {:const {:value "active"}, :fhir/flags #{:MS}},
-   :endpoint-usecase
-   {:type zen/vector,
-    :every
-    {:confirms
-     #{hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase/schema},
-     :fhir/extensionUri
-     "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/endpoint-usecase",
-     :fhir/flags #{:MS},
-     :zen/desc "Endpoint Usecase"}},
-   :contact
-   {:type zen/vector,
-    :every
-    {:type zen/map,
-     :keys
-     {:system #:fhir{:flags #{:MS}}, :value #:fhir{:flags #{:MS}}},
-     :fhir/flags #{:MS}}}}}}
+ import #{zen.fhir
+          hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase
+          hl7-fhir-r4-core.Endpoint
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization},
+ schema {:zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen/desc "The technical details of an endpoint that can be used for electronic services, such as a portal or FHIR REST services, messaging or operations, or DIRECT messaging.",
+         :zen.fhir/type "Endpoint",
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/plannet-Endpoint",
+         :zen.fhir/version "0.6.6-8",
+         :confirms #{hl7-fhir-r4-core.Endpoint/schema
+                     zen.fhir/Resource},
+         :type zen/map,
+         :keys {:connectionType {:fhir/flags #{:MS},
+                                 :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointConnectionTypeVS/value-set,
+                                                      :strength :extensible}},
+                :address {:fhir/flags #{:MS}},
+                :meta {:type zen/map, :require #{:lastUpdated}},
+                :managingOrganization {:fhir/flags #{:MS},
+                                       :confirms #{zen.fhir/Reference},
+                                       :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization/schema}}},
+                :name {:fhir/flags #{:MS}},
+                :payloadMimeType {:type zen/vector,
+                                  :every {:fhir/flags #{:MS}}},
+                :payloadType {:type zen/vector,
+                              :every {:fhir/flags #{:MS},
+                                      :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.EndpointPayloadTypeVS/value-set,
+                                                           :strength :extensible}},
+                              :maxItems 1},
+                :status {:const {:value "active"}, :fhir/flags #{:MS}},
+                :endpoint-usecase {:type zen/vector,
+                                   :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.endpoint-usecase/schema},
+                                           :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/endpoint-usecase",
+                                           :fhir/flags #{:MS},
+                                           :zen/desc "Endpoint Usecase"}},
+                :contact {:type zen/vector,
+                          :every {:type zen/map,
+                                  :keys {:system {:fhir/flags #{:MS}},
+                                         :value {:fhir/flags #{:MS}}},
+                                  :fhir/flags #{:MS}}}}}}

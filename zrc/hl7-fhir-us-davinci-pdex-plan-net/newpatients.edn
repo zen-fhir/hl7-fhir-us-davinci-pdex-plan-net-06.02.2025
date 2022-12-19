@@ -1,39 +1,27 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.newpatients,
- import
- #{zen.fhir
-   hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS
-   hl7-fhir-us-davinci-pdex-plan-net.plannet-Network
-   hl7-fhir-r4-core.string
-   hl7-fhir-r4-core.Reference
-   hl7-fhir-r4-core.CodeableConcept},
- schema
- {:zen.fhir/version "0.6.6-7",
-  :zen/tags #{zen/schema zen.fhir/structure-schema},
-  :zen.fhir/profileUri
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
-  :require #{:acceptingPatients},
-  :type zen/map,
-  :zen/desc
-  "New Patients indicates whether new patients are being accepted in general, or from a specific network.   \n              This extension is included in the PractitionerRole, HealthcareService, and Location profiles.  \n              This provides needed flexibility for specifying whether a provider accepts new patients by location and network.",
-  :keys
-  {:acceptingPatients
-   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
-    :fhir/flags #{:MS},
-    :zen.fhir/value-set
-    {:symbol
-     hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS/value-set,
-     :strength :required},
-    :zen/desc "Accepting Patients"},
-   :fromNetwork
-   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
-    :fhir/flags #{:MS},
-    :zen.fhir/reference
-    {:refers
-     #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema}},
-    :zen/desc "From Network"},
-   :characteristics
-   {:type zen/vector,
-    :every
-    {:confirms #{hl7-fhir-r4-core.string/schema},
-     :fhir/flags #{:MS},
-     :zen/desc "Characteristics of accepted patients"}}}}}
+ import #{zen.fhir
+          hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS
+          hl7-fhir-us-davinci-pdex-plan-net.plannet-Network
+          hl7-fhir-r4-core.string
+          hl7-fhir-r4-core.Reference
+          hl7-fhir-r4-core.CodeableConcept},
+ schema {:zen.fhir/version "0.6.6-8",
+         :zen/tags #{zen/schema zen.fhir/structure-schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/newpatients",
+         :require #{:acceptingPatients},
+         :type zen/map,
+         :zen/desc "New Patients indicates whether new patients are being accepted in general, or from a specific network.   \n              This extension is included in the PractitionerRole, HealthcareService, and Location profiles.  \n              This provides needed flexibility for specifying whether a provider accepts new patients by location and network.",
+         :keys {:acceptingPatients {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+                                    :fhir/flags #{:MS},
+                                    :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.AcceptingPatientsVS/value-set,
+                                                         :strength :required},
+                                    :zen/desc "Accepting Patients"},
+                :fromNetwork {:confirms #{hl7-fhir-r4-core.Reference/schema
+                                          zen.fhir/Reference},
+                              :fhir/flags #{:MS},
+                              :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Network/schema}},
+                              :zen/desc "From Network"},
+                :characteristics {:type zen/vector,
+                                  :every {:confirms #{hl7-fhir-r4-core.string/schema},
+                                          :fhir/flags #{:MS},
+                                          :zen/desc "Characteristics of accepted patients"}}}}}

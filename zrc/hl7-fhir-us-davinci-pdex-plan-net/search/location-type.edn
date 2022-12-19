@@ -1,15 +1,12 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.search.location-type,
  import #{zen.fhir},
- search
- {:zen/tags #{zen.fhir/search},
-  :fhir/id "location-type",
-  :fhir/url
-  "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-type",
-  :fhir/type "token",
-  :name "type",
-  :expr
-  {:Location
-   {:knife [["type"]],
-    :jsonpath ["$.\"type\"[*]"],
-    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
-    :template :token}}}}
+ search {:zen/tags #{zen.fhir/search},
+         :fhir/id "location-type",
+         :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/location-type",
+         :fhir/type "token",
+         :name "type",
+         :expr {:Location {:knife [["type"]],
+                           :jsonpath ["$.\"type\"[*]"],
+                           :data-types #{{:type "CodeableConcept",
+                                          :polymorphic? false}},
+                           :template :token}}}}
