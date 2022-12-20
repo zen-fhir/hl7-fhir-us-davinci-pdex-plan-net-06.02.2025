@@ -2,7 +2,7 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "The state indicating if a qualification is currently valid.",
-            :zen.fhir/version "0.6.6-8",
+            :zen.fhir/version "0.6.7",
             :fhir/code-systems #{{:fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/QualificationStatusCS",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/QualificationStatusVS",
