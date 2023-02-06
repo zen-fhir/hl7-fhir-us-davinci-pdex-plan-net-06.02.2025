@@ -5,7 +5,8 @@
          :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/organization-coverage-area",
          :fhir/type "reference",
          :name "coverage-area",
-         :expr {:Organization {:knife [],
-                               :jsonpath [],
+         :expr {:Organization {:knife [["extension"
+                                        {:url "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference"}]],
+                               :jsonpath ["$.\"extension\"?(@.\"url\"==\"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference\")[*]"],
                                :data-types #{},
                                :template :reference}}}}

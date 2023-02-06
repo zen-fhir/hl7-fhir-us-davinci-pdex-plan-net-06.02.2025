@@ -5,7 +5,8 @@
          :fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/SearchParameter/practitionerrole-network",
          :fhir/type "reference",
          :name "network",
-         :expr {:PractitionerRole {:knife [],
-                                   :jsonpath [],
+         :expr {:PractitionerRole {:knife [["extension"
+                                            {:url "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference"}]],
+                                   :jsonpath ["$.\"extension\"?(@.\"url\"==\"http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference\")[*]"],
                                    :data-types #{},
                                    :template :reference}}}}
