@@ -2,15 +2,17 @@
  import #{zen.fhir},
  value-set {:zen/tags #{zen.fhir/value-set},
             :zen/desc "Codes for the capabilities that an individual, group, or organization is acknowledged to have in a payer network, including general codes from the HL7 PractitionerRole Code System.",
-            :zen.fhir/version "0.6.15",
+            :zen.fhir/version "0.6.16-2",
             :fhir/code-systems #{{:fhir/url "http://terminology.hl7.org/CodeSystem/practitioner-role",
                                   :zen.fhir/content :bundled}
                                  {:fhir/url "http://hl7.org/fhir/us/davinci-pdex-plan-net/CodeSystem/ProviderRoleCS",
                                   :zen.fhir/content :bundled}},
             :uri "http://hl7.org/fhir/us/davinci-pdex-plan-net/ValueSet/PractitionerRoleVS",
             :version "1.1.0",
-            :ftr {:module "ig",
-                  :source-urls ["node_modules/hl7.fhir.us.davinci-pdex-plan-net"],
-                  :source-type :igs,
+            :ftr {:module "hl7-fhir-us-davinci-pdex-plan-net",
+                  :source-url "https://storage.googleapis.com",
+                  :source-type :cloud-storage,
                   :ftr-path "ftr",
-                  :tag "init"}}}
+                  :tag "init",
+                  :validation-index {:type :nippy,
+                                     :file "index.nippy"}}}}
