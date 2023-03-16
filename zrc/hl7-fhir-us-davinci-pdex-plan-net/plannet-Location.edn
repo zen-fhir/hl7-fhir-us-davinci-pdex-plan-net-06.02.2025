@@ -9,7 +9,7 @@
           hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
           hl7-fhir-us-core.us-core-location
           hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema {:zen.fhir/version "0.6.17-2",
+ schema {:zen.fhir/version "0.6.17-4",
          :confirms #{hl7-fhir-us-core.us-core-location/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
