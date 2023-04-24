@@ -7,7 +7,7 @@
           hl7-fhir-us-davinci-pdex-plan-net.plannet-Organization
           hl7-fhir-us-davinci-pdex-plan-net.plannet-Endpoint
           hl7-fhir-us-davinci-pdex-plan-net.value-set.InsurancePlanTypeVS},
- schema {:zen.fhir/version "0.6.22",
+ schema {:zen.fhir/version "0.6.22-1",
          :confirms #{hl7-fhir-r4-core.InsurancePlan/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
