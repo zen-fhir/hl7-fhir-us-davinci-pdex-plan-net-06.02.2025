@@ -6,7 +6,7 @@
          :zen/desc "An extension to describe accessibility options offered by a practitioner or at a location.",
          :zen.fhir/type "CodeableConcept",
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/accessibility",
-         :zen.fhir/version "0.6.23-1",
+         :zen.fhir/version "0.6.24",
          :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
          :zen.fhir/value-set {:symbol hl7-fhir-us-davinci-pdex-plan-net.value-set.AccessibilityVS/value-set,
                               :strength :extensible}}}
