@@ -6,7 +6,7 @@
  schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
          :zen/desc "An extension representing the days and times a contact point is available",
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/contactpoint-availabletime",
-         :zen.fhir/version "0.6.25-1",
+         :zen.fhir/version "0.6.27",
          :type zen/map,
          :keys {:daysOfWeek {:type zen/vector,
                              :every {:confirms #{hl7-fhir-r4-core.code/schema},
