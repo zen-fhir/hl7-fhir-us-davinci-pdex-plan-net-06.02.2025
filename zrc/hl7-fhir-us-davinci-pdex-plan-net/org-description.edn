@@ -1,9 +1,11 @@
 {ns hl7-fhir-us-davinci-pdex-plan-net.org-description,
  import #{zen.fhir hl7-fhir-r4-core.string},
- schema {:zen/tags #{zen/schema zen.fhir/structure-schema},
+ schema {:zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
          :zen/desc "An extension to provide a human-readable description of an organization.",
          :zen.fhir/type "string",
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/org-description",
-         :zen.fhir/version "0.6.27",
+         :zen.fhir/version "0.6.28",
          :confirms #{hl7-fhir-r4-core.string/schema},
          :fhir/flags #{:MS}}}

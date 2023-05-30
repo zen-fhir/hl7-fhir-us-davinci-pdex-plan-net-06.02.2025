@@ -9,8 +9,10 @@
           hl7-fhir-r4-core.CodeableConcept
           hl7-fhir-r4-core.Identifier
           hl7-fhir-us-davinci-pdex-plan-net.value-set.SpecialtyAndDegreeLicenseCertificateVS},
- schema {:zen.fhir/version "0.6.27",
-         :zen/tags #{zen/schema zen.fhir/structure-schema},
+ schema {:zen.fhir/version "0.6.28",
+         :zen/tags #{zen.fhir/extension
+                     zen/schema
+                     zen.fhir/structure-schema},
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/qualification",
          :require #{:whereValid :status :code},
          :type zen/map,
