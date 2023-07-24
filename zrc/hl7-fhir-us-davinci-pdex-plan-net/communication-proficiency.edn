@@ -6,5 +6,5 @@
          :zen/desc "An extension to express a practitioner’s spoken proficiency with the language indicated in practitioner.communication.",
          :zen.fhir/type "CodeableConcept",
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/communication-proficiency",
-         :zen.fhir/version "0.6.29-4",
+         :zen.fhir/version "0.6.30",
          :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}}
