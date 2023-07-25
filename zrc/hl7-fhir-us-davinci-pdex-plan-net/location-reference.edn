@@ -6,7 +6,7 @@
          :zen/desc "A reference to a Location resource (plannet-Location) defining the coverage area of a health insurance provider network",
          :zen.fhir/type "Reference",
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/location-reference",
-         :zen.fhir/version "0.6.30",
+         :zen.fhir/version "0.6.30-1",
          :confirms #{zen.fhir/Reference},
          :fhir/flags #{:MS},
          :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-Location/schema}}}}
