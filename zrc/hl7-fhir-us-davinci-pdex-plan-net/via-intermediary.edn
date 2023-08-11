@@ -10,7 +10,7 @@
          :zen/desc "A reference to an alternative point of contact (plannet-PractitionerRole, plannet-Organization, plannet-OrganizationAffiliation, or plannet-Location) for this organization",
          :zen.fhir/type "Reference",
          :zen.fhir/profileUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/via-intermediary",
-         :zen.fhir/version "0.6.30-13",
+         :zen.fhir/version "0.6.30-14",
          :confirms #{zen.fhir/Reference},
          :fhir/flags #{:MS},
          :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-OrganizationAffiliation/schema
