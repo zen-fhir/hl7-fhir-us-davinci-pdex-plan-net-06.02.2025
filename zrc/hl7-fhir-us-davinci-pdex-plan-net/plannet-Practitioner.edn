@@ -7,7 +7,7 @@
           hl7-fhir-us-davinci-pdex-plan-net.via-intermediary
           hl7-fhir-us-davinci-pdex-plan-net.practitioner-qualification
           hl7-fhir-us-davinci-pdex-plan-net.contactpoint-availabletime},
- schema {:zen.fhir/version "0.6.31",
+ schema {:zen.fhir/version "0.6.32",
          :confirms #{hl7-fhir-us-core.us-core-practitioner/schema
                      zen.fhir/Resource},
          :zen/tags #{zen.fhir/profile-schema zen/schema},
