@@ -100,8 +100,9 @@
                                     :every {:fhir/flags #{:MS},
                                             :confirms #{zen.fhir/Reference},
                                             :zen.fhir/reference {:refers #{hl7-fhir-us-davinci-pdex-plan-net.plannet-HealthcareService/schema}}}},
-                :network-reference {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.network-reference/schema},
-                                    :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
-                                    :fhir/flags #{:MS},
-                                    :zen/desc "NetworkReference"}},
+                :network-reference {:type zen/vector,
+                                    :every {:confirms #{hl7-fhir-us-davinci-pdex-plan-net.network-reference/schema},
+                                            :fhir/extensionUri "http://hl7.org/fhir/us/davinci-pdex-plan-net/StructureDefinition/network-reference",
+                                            :fhir/flags #{:MS},
+                                            :zen/desc "NetworkReference"}}},
          :zen.fhir/type "PractitionerRole"}}
